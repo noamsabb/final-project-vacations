@@ -1,0 +1,26 @@
+import { NavLink } from "react-router-dom";
+import "./Menu.css";
+import { useSelector } from "react-redux";
+import { UserModel } from "../../../Models/UserModel";
+import { AppState } from "../../../Redux/Store";
+import { Role } from "../../../Models/Role";
+
+export function Menu() {
+
+const user = useSelector<AppState, UserModel>(state => state.user);
+    return (
+        <div className="Menu">
+
+            <NavLink to="/home">Home</NavLink>
+
+            <span> | </span>
+
+            <NavLink to="/vacations">Vacations</NavLink>
+            <span> | </span>
+            {user?.role === Role.Admin && 
+            
+            <NavLink to="/new">Add Vacation</NavLink>
+            }
+        </div>
+    );
+}

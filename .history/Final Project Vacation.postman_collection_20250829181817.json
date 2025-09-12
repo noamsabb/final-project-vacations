@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "233e51c0-84ca-43d9-b7b6-5daebea50529",
+		"name": "Final Project Vacation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46547159",
+		"_collection_link": "https://noamsabban.postman.co/workspace/Noam-Sabban's-Workspace~28718754-4e2a-4b77-8d6d-d2e805846737/collection/46547159-233e51c0-84ca-43d9-b7b6-5daebea50529?action=share&source=collection_link&creator=46547159"
+	},
+	"item": [
+		{
+			"name": "Vacations",
+			"item": [
+				{
+					"name": "Get All Vacations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n\"filter\": \"future\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/vacations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Vacation",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inputLanguage\": \"JavaScript\",\n    \"outputLanguage\": \"TypeScript\",\n    \"code\": \"function sum(a,b) {return a+b}\"\n    \n\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/vacations/68ad6450c542084ff8cb3bf5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								"68ad6450c542084ff8cb3bf5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Vacation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "destination",
+									"value": "Reykjavík",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Reykjavík, the world’s northernmost capital, is a small but lively city surrounded by stunning Icelandic nature. After exploring its colorful streets and local art scene, take day trips to see geysers, glaciers, and the Northern Lights — all just a short drive away.",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2025-12-25",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2026-01-10",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1500",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/noam/Desktop/Final FullStack Project/Backend/src/1-assets/images/Reykjavík.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/vacations/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vacation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "destination",
+									"value": "Reykjavík",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Reykjavík, the world’s northernmost capital, is a small but lively city surrounded by stunning Icelandic nature. After exploring its colorful streets and local art scene, take day trips to see geysers, glaciers, and the Northern Lights — all just a short drive away.",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2025-12-25",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2026-01-10",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1500",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/noam/Desktop/Final FullStack Project/Backend/src/1-assets/images/Reykjavík.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/vacations/68aeef9d8db7f4956a5fe09e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								"68aeef9d8db7f4956a5fe09e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vacation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "destination",
+									"value": "Reykjavík",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Reykjavík, the world’s northernmost capital, is a small but lively city surrounded by stunning Icelandic nature. After exploring its colorful streets and local art scene, take day trips to see geysers, glaciers, and the Northern Lights — all just a short drive away.",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2025-12-25",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2026-01-10",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1750",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/noam/Desktop/Final FullStack Project/Backend/src/1-assets/images/Reykjavík.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/vacations/68aeef9d8db7f4956a5fe09e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								"68aeef9d8db7f4956a5fe09e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Homer\",\n    \"lastName\": \"Simpson\",\n    \"email\": \"homer@gmail.com\",\n    \"password\": \"1234\",\n    \"roleId\": 1\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"marge@gmail.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like / Unlike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vacationId\": \"68ad63cec542084ff8cb3bf2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users/68af59baabb35f0c43bef885/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"68af59baabb35f0c43bef885",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Liked",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vacationId\": \"68ad6294c542084ff8cb3bf0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users/68af59baabb35f0c43bef885/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"68af59baabb35f0c43bef885",
+								"like"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

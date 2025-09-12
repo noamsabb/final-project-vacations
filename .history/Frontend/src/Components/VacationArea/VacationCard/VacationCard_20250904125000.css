@@ -1,0 +1,93 @@
+.vacation-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.cloud-shape {
+  position: relative;
+  width: 300px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 60% 60% 50% 50% / 60% 60% 40% 40%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.cloud-shape:hover {
+  transform: scale(1.02);
+}
+
+/* Plane Trail */
+.plane-trail {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  height: 80px;
+  width: 120px;
+  pointer-events: none;
+}
+
+.plane-trail::before {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  width: 100px;
+  height: 2px;
+  border-top: 2px dashed #555;
+  transform: rotate(25deg);
+}
+
+/* Plane itself */
+.plane {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  font-size: 22px;
+  transition: transform 1s ease-in-out;
+}
+
+.cloud-shape:hover .plane {
+  transform: translate(60px, -50px);
+}
+
+.destination {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.description {
+  font-size: 14px;
+  text-align: center;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.likes {
+  text-align: right;
+  font-size: 14px;
+}
+
+.admin-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}

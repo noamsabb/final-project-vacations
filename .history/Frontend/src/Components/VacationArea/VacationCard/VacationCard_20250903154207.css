@@ -1,0 +1,53 @@
+.vacation-card {
+  background-color: white;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 100px / 60px; /* more cloud-like */
+  transition: transform 0.2s ease;
+}
+
+.vacation-card:hover {
+  transform: translateY(-4px);
+}
+
+.airplane-icon {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  font-size: 28px;
+  transform: rotate(30deg);
+}
+.image-wrapper img {
+  width: 80%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.destination {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.description {
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.likes {
+  text-align: right;
+  font-size: 14px;
+}

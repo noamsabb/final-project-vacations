@@ -1,0 +1,67 @@
+.VacationCard {
+  position: relative;
+  background: #ffffff;
+  padding: 20px;
+  width: 320px;
+  text-align: center;
+  border-radius: 50% 50% 60% 60% / 60% 60% 40% 40%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  overflow: visible;
+  transition: transform 0.3s ease;
+}
+
+.VacationCard:hover {
+  transform: scale(1.02);
+}
+
+
+
+
+.vacation-card:hover {
+  transform: translateY(-4px);
+}
+airplane-icon {
+  position: absolute;
+  top: -60px;
+  right: 10px;
+  font-size: 30px;
+  transform: rotate(20deg);
+}
+.image-wrapper {
+  text-align: center;
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  height: 160px;
+}
+
+.destination {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.description {
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.likes {
+  text-align: right;
+  font-size: 14px;
+}
