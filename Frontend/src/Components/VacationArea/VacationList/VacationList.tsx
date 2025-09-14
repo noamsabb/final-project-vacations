@@ -8,21 +8,25 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../../Redux/Store";
 import { AddVacation } from "../AddVacation/AddVacation";
 import { userService } from "../../../Services/UserService";
+import { useNavigate } from "react-router-dom";
 
 export function VacationList() {
   const user = useSelector((state: AppState) => state.user);
   const [vacations, setVacations] = useState<VacationModel[]>([]);
   const [showAddForm, setShowAddForm] = useState(false);
+  const navigate = useNavigate();
 
   const [filter, setFilter] = useState<string>("all");
   const [likedButton, setLikedButton] = useState(false);
 
-  useEffect(() => {    
-    vacationService
+  useEffect(() => {
+    if (!showAddForm){vacationService
       .getAllVacations("all")
       .then(setVacations)
       .catch(console.error);
-  }, []);
+      console.log("useEffect");}
+      
+  }, [showAddForm]);
 
   async function handleFilterChange(selectedFilter: string) {
     let vacations: VacationModel[];
@@ -72,12 +76,14 @@ export function VacationList() {
           Ongoing Vacations
         </button>
 
-       {user?.role === "User" && (<button
-          className={likedButton ? "active" : ""}
-          onClick={() => handleFilterChange("liked")}
-        >
-          Liked Vacations
-        </button>)}
+        {user?.role === "User" && (
+          <button
+            className={likedButton ? "active" : ""}
+            onClick={() => handleFilterChange("liked")}
+          >
+            Liked Vacations
+          </button>
+        )}
       </div>
 
       {user?.role === "Admin" && (
@@ -87,7 +93,11 @@ export function VacationList() {
       {showAddForm && (
         <div className="modal-overlay" onClick={() => setShowAddForm(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <AddVacation onClose={() => setShowAddForm(false)} />
+            <AddVacation
+              onClose={() => {
+                setShowAddForm(false);
+              }}
+            />
           </div>
         </div>
       )}

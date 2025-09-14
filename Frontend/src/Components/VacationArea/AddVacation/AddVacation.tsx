@@ -18,7 +18,6 @@ export function AddVacation({ onClose }: AddVacationProps) {
 
   async function send(vacation: VacationModel) {
     vacation.image = (vacation.image as unknown as FileList)[0];
-    console.log(vacation.startDate);
 
     await vacationService.addVacation(vacation);
     notify.success("Vacation has been added.");

@@ -7,6 +7,7 @@ import "./Routing.css";
 import { EditVacation } from "../../VacationArea/EditVacation/EditVacation";
 import { Register } from "../../UserArea/Register/Register";
 import { Login } from "../../UserArea/Login/Login";
+import { LikeReport } from "../../AdminArea/LikeReport/LikeReport";
 
 export function Routing() {
   return (
@@ -19,6 +20,8 @@ export function Routing() {
         <Route path="/vacations" element={<VacationList />} />
 
         <Route path="/new" element={<AddVacation />} />
+
+        <Route path="/like-report" element={<LikeReport />} />
 
         <Route path="/vacations/edit/:_id" element={<EditVacation />} />
 

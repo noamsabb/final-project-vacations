@@ -21,8 +21,9 @@ const user = useSelector<AppState, UserModel>(state => state.user);
             
             {user?.role === Role.Admin && <>
             <span> | </span>
-            <NavLink to="/new">Add Vacation</NavLink>
+            <NavLink to="/like-report">Like report</NavLink>
             </>            }
+
 
         </div>
     );
