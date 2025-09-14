@@ -43,7 +43,7 @@ export function Login() {
       </form>
 
       <p>
-        Not yet a member ? <NavLink to="/register">Register now</NavLink>{" "}
+        Not yet a member ? <NavLink to="/register">Register now</NavLink>
       </p>
     </div>
   );

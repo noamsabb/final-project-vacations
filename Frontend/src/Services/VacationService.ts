@@ -5,20 +5,29 @@ import { appConfig } from "../Utils/AppConfig";
 class VacationService {
   public async getAllVacations(
     filter: string,
-    page: number = 1,
-    limit: number = 9
+    page?: number,
+    limit?: number
   ): Promise<{
     vacations: VacationModel[];
     total: number;
-    page: number;
-totalPages: number;
+    page?: number;
+    totalPages?: number;
   }> {
-    const response = await axios.get(appConfig.vacationsUrl, {
-      params: { filter, page, limit },
-    });
+    let response: any;
+    if (limit && page) {
+      response = await axios.get(appConfig.vacationsUrl, {
+        params: { filter, page, limit },
+      });
+    } else {
+      console.log(`Page: ${page}. Limit: ${limit}. Filter: ${filter}`);
+
+      response = await axios.get(appConfig.vacationsUrl, {
+        params: { filter },
+      });
+      console.log(response.data);
+    }
     return response.data;
   }
-
 
   public async getOneVacation(_id: string): Promise<VacationModel> {
     const response = await axios.get<VacationModel>(

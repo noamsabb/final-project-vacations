@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { VacationList } from "../../VacationArea/VacationList/VacationList";
 import { AddVacation } from "../../VacationArea/AddVacation/AddVacation";
 import { Home } from "../../PagesArea/Home/Home";
-import { Page404 } from "../Page404/Page404";
+import { Page404 } from "../../PagesArea/Page404/Page404";
 import "./Routing.css";
 import { EditVacation } from "../../VacationArea/EditVacation/EditVacation";
 import { Register } from "../../UserArea/Register/Register";

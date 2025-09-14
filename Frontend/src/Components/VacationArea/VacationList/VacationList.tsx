@@ -112,6 +112,7 @@ export function VacationList() {
         ) : (
           vacations.map((v) => <VacationCard key={v._id} vacation={v} />)
         )}
+        <span>Total Vacations online: {vacations.length}</span>
       </div>
 
       {/* Pagination controls */}

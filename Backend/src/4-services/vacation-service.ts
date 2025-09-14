@@ -9,16 +9,15 @@ import { createObjectCsvStringifier } from "csv-writer";
 class VacationService {
   public async getAllVacations(
     filter: string,
-    page: number = 1,
-    limit: number = 9
+    page?: number,
+    limit?: number
   ): Promise<{
     vacations: IVacationModel[];
     total: number;
-    page: number;
-    totalPages: number;
+    page?: number;
+    totalPages?: number;
   }> {
     const now = new Date();
-    const skip = (page - 1) * limit;
     let query = {};
 
     switch (filter) {
@@ -33,22 +32,39 @@ class VacationService {
         query = {};
         break;
     }
-    const [vacations, total] = await Promise.all([
-      //Get vacations from query
-      VacationModel.find(query)
-        .sort({ startDate: 1 })
-        .skip(skip)
-        .limit(limit)
-        .exec(),
+
+    console.log(`Page: ${page}. Limit: ${limit}`);
+    
+    if (page && limit) {
+      const skip = (page - 1) * limit;
+      const [vacations, total] = await Promise.all([
+        //Get vacations from query with pagination
+        VacationModel.find(query)
+          .sort({ startDate: 1 })
+          .skip(skip)
+          .limit(limit)
+          .exec(),
         //Get total number of vacation for this research
-      VacationModel.countDocuments(query),
-    ]);
+        VacationModel.countDocuments(query),
+      ]);
+
+      return {
+        vacations,
+        total,
+        page,
+        totalPages: Math.ceil(total / limit),
+      };
+    }
+    //In case we need to get all vacations with no pagination
+    const vacations = await VacationModel.find(query)
+      .sort({ startDate: 1 })
+      .exec();
+
+    console.log(vacations);
 
     return {
       vacations,
-      total,
-      page,
-      totalPages: Math.ceil(total / limit),
+      total: vacations.length,
     };
   }
 

@@ -16,22 +16,6 @@ export function EditVacation() {
   const params = useParams();
   const _id = params._id!;
 
-  // useEffect(() => {
-  //   vacationService
-  //     .getOneVacation(_id)
-  //     .then((dbVacation) => {
-  //       setValue("destination", dbVacation.destination);
-  //       setValue("description", dbVacation.description);
-  //       setValue("startDate", dbVacation.startDate);
-  //       setValue("endDate", dbVacation.endDate);
-  //       setValue("price", dbVacation.price);
-  //       setImageUrl(dbVacation.imageUrl!);
-  //       setStartDate(dbVacation.startDate);
-  //       setEndDate(dbVacation.endDate);
-  //     })
-  //     .catch((err) => err.message);
-  // }, [_id, setValue]);
-
   useEffect(() => {
   vacationService.getOneVacation(_id)
     .then((vacation) => {
@@ -86,27 +70,6 @@ export function EditVacation() {
         ></textarea>
         <br />
         <label>Start On</label>
-        {/* <input
-          type="date"
-          value={startDate ? startDate.toString().split("T")[0] : ""}
-          {...register("startDate")}
-          required
-          onChange={(e) => setStartDate(new Date(e.target.value))}
-        />
-        <br />
-        <label>End On</label>
-        <input
-          type="date"
-          value={endDate ? endDate.toString().split("T")[0] : ""}
-          min={
-            startDate
-              ? startDate.toString().split("T")[0]
-              : new Date().toISOString().split("T")[0]
-          }
-          {...register("endDate")}
-          required
-          onChange={(e) => setEndDate(new Date(e.target.value))}
-        /> */}
         <input
           type="date"
           value={startDate ? startDate.toISOString().split("T")[0] : ""}
