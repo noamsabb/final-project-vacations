@@ -20,6 +20,12 @@ export function LikeReport() {
 
   return (
     <div className="LikeReport">
+
+      <div>
+        <button onClick={vacationService.getVacationCsv}>Download Csv File 📄 </button>
+      </div>
+
+
       <div style={{ width: "100%", height: 400 }}>
       <h2>Likes Report</h2>
       <ResponsiveContainer>

@@ -38,6 +38,26 @@ class VacationService {
     public async deleteVacation(_id: string):Promise<void>{
         await axios.delete(appConfig.vacationsUrl + _id);
     }
+
+    public async getVacationCsv():Promise<void>{
+         const response = await axios.get(appConfig.vacationsUrl + "export", {
+      responseType: "blob", // 👈 important for files
+    });
+
+    // Create a blob URL for the CSV
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+
+    // Create a hidden link element
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "vacations.csv"); // 👈 default filename
+    document.body.appendChild(link);
+    link.click();
+
+    // Cleanup
+    link.remove();
+    window.URL.revokeObjectURL(url);
+  }
 }
 
 export const vacationService = new VacationService();
