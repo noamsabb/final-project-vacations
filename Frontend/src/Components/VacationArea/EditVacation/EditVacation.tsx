@@ -5,8 +5,10 @@ import { vacationService } from "../../../Services/VacationService";
 import { notify } from "../../../Utils/Notify";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useTitle } from "../../../Utils/UseTitle";
 
 export function EditVacation() {
+    useTitle("Like2Vacation - Edit Vacation");
   const navigate = useNavigate();
 
   const { register, handleSubmit, setValue } = useForm<VacationModel>();

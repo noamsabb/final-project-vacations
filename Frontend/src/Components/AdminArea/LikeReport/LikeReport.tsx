@@ -11,7 +11,10 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { useTitle } from "../../../Utils/UseTitle";
+
 export function LikeReport() {
+  useTitle("Like2Vacation - Vacations Report");
   const [vacations, setVacations] = useState<VacationModel[]>([]);
 
   useEffect(() => {

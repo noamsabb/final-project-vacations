@@ -1,6 +1,8 @@
+import { useTitle } from "../../../Utils/UseTitle";
 import "./Home.css";
 
 export function Home() {
+    useTitle("Like2Vacation - Home");
 
     return (
         <div className="Home">

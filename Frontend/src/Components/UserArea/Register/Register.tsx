@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { UserModel } from "../../../Models/UserModel";
 import { userService } from "../../../Services/UserService";
 import { notify } from "../../../Utils/Notify";
+import { useTitle } from "../../../Utils/UseTitle";
 import "./Register.css";
 
 export function Register() {
+    useTitle("Like2Vacation - Register");
 
     const { register, handleSubmit } = useForm<UserModel>();
     const navigate = useNavigate();

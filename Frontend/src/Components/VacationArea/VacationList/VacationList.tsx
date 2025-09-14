@@ -8,8 +8,10 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../../Redux/Store";
 import { AddVacation } from "../AddVacation/AddVacation";
 import { userService } from "../../../Services/UserService";
+import { useTitle } from "../../../Utils/UseTitle";
 
 export function VacationList() {
+    useTitle("Like2Vacation - Vacations");
   const user = useSelector((state: AppState) => state.user);
   const [vacations, setVacations] = useState<VacationModel[]>([]);
   const [showAddForm, setShowAddForm] = useState(false);

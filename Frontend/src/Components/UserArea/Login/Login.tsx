@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { CredentialsModel } from "../../../Models/CredentialsModel";
 import { userService } from "../../../Services/UserService";
 import { notify } from "../../../Utils/Notify";
+import { useTitle } from "../../../Utils/UseTitle";
 import "./Login.css";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 export function Login() {
+    useTitle("Like2Vacation - Login");
   const { register, handleSubmit } = useForm<CredentialsModel>();
   const navigate = useNavigate();
   const location = useLocation();

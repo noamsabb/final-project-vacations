@@ -5,12 +5,14 @@ import { vacationService } from "../../../Services/VacationService";
 import { notify } from "../../../Utils/Notify";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useTitle } from "../../../Utils/UseTitle";
 
 type AddVacationProps = {
   onClose: () => void;
 };
 
 export function AddVacation({ onClose }: AddVacationProps) {
+    useTitle("Like2Vacation - Add Vacation");
   const navigate = useNavigate();
 
   const { register, handleSubmit } = useForm<VacationModel>();
