@@ -24,7 +24,10 @@ class VacationController {
   private async getAllVacations(request: Request, response: Response) {
     // const filter = request.body.filter; //To test in postman
     const filter = request.query.filter as string;
-    const vacations = await vacationService.getAllVacations(filter);
+    const page = Number(request.query.page) || 1;  
+    const limit = Number(request.query.limit) || 9; 
+
+    const vacations = await vacationService.getAllVacations(filter, page, limit);
     response.json(vacations);
   }
   private async getOneVacation(request: Request, response: Response) {

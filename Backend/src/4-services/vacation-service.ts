@@ -7,23 +7,49 @@ import { fileSaver } from "uploaded-file-saver";
 import { createObjectCsvStringifier } from "csv-writer";
 
 class VacationService {
-  public async getAllVacations(filter: string): Promise<IVacationModel[]> {
-    let vacations;
+  public async getAllVacations(
+    filter: string,
+    page: number = 1,
+    limit: number = 9
+  ): Promise<{
+    vacations: IVacationModel[];
+    total: number;
+    page: number;
+    totalPages: number;
+  }> {
     const now = new Date();
+    const skip = (page - 1) * limit;
+    let query = {};
 
     switch (filter) {
       case "ongoing":
-        vacations = await VacationModel.find({startDate:{$lte: now}, endDate: {$gte: now}}).sort({ startDate: 1 }).exec();
+        query = { startDate: { $lte: now }, endDate: { $gte: now } };
         break;
       case "upcoming":
-        vacations = await VacationModel.find({startDate: {$gte: now}}).sort({ startDate: 1 }).exec();
+        query = { startDate: { $gte: now } };
         break;
       case "all":
       default:
-        vacations = await VacationModel.find({}).sort({ startDate: 1 }).exec();
+        query = {};
         break;
     }
-    return vacations;
+    const [vacations, total] = await Promise.all([
+      //Get vacations from query
+      VacationModel.find(query)
+        .sort({ startDate: 1 })
+        .skip(skip)
+        .limit(limit)
+        .exec(),
+        //Get total number of vacation for this research
+      VacationModel.countDocuments(query),
+    ]);
+
+    return {
+      vacations,
+      total,
+      page,
+      totalPages: Math.ceil(total / limit),
+    };
   }
 
   public async getOneVacation(_id: string | ObjectId): Promise<IVacationModel> {
@@ -78,22 +104,22 @@ class VacationService {
   }
 
   public async generateVacationCsv(): Promise<string> {
-  const vacations = await VacationModel.find().lean();
+    const vacations = await VacationModel.find().lean();
 
-  const csv = createObjectCsvStringifier({
-    header: [
-      { id: "destination", title: "Destination" },
-      { id: "likes", title: "Likes" }
-    ],
-  });
+    const csv = createObjectCsvStringifier({
+      header: [
+        { id: "destination", title: "Destination" },
+        { id: "likes", title: "Likes" },
+      ],
+    });
 
-  const records = vacations.map((v) => ({
-    destination: v.destination,
-    likes: v.likes // handle both formats
-  }));
+    const records = vacations.map((v) => ({
+      destination: v.destination,
+      likes: v.likes, // handle both formats
+    }));
 
-  return csv.getHeaderString() + csv.stringifyRecords(records);
-}
+    return csv.getHeaderString() + csv.stringifyRecords(records);
+  }
 }
 
 export const vacationService = new VacationService();

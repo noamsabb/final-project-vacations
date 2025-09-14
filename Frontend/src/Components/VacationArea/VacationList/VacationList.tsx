@@ -8,49 +8,50 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../../Redux/Store";
 import { AddVacation } from "../AddVacation/AddVacation";
 import { userService } from "../../../Services/UserService";
-import { useNavigate } from "react-router-dom";
 
 export function VacationList() {
   const user = useSelector((state: AppState) => state.user);
   const [vacations, setVacations] = useState<VacationModel[]>([]);
   const [showAddForm, setShowAddForm] = useState(false);
-  const navigate = useNavigate();
-
+  const [page, setPage] = useState(1);
+  const [limit] = useState(9);
+  const [totalPages, setTotalPages] = useState(1);
   const [filter, setFilter] = useState<string>("all");
   const [likedButton, setLikedButton] = useState(false);
 
   useEffect(() => {
-    if (!showAddForm){vacationService
-      .getAllVacations("all")
-      .then(setVacations)
-      .catch(console.error);
-      console.log("useEffect");}
-      
-  }, [showAddForm]);
+  if (!showAddForm) {
+    if (likedButton) {
+      // Handling Pagination (frontEnd only for liked Vacations)
+      userService.getLikedVacationsFiltered(filter, user._id)
+        .then(likedVacations=>{
+          setTotalPages(Math.ceil(likedVacations.length / limit));
+          setVacations(likedVacations.slice(((page-1)*limit),page*limit));
+        })
+        .catch(console.error);
+    } else {
+      // Handling Pagination (BackEnd and frontEnd for not liked Vacations)
+      vacationService
+        .getAllVacations(filter, page, limit)
+        .then((result) => {
+          setVacations(result.vacations);
+          setTotalPages(Math.ceil(result.total / limit));
+        })
+        .catch(console.error);
+    }
+  }
+}, [page, filter, showAddForm, likedButton]);
+
 
   async function handleFilterChange(selectedFilter: string) {
-    let vacations: VacationModel[];
-    let newLikedState: boolean = likedButton;
-
     if (selectedFilter === "liked") {
-      newLikedState = !likedButton;
-      setLikedButton(newLikedState);
-    }
-
-    if (selectedFilter !== "liked") {
-      setFilter(selectedFilter);
-    }
-
-    if (newLikedState) {
-      vacations = await userService.getLikedVacationsFiltered(
-        selectedFilter,
-        user._id
-      );
+      //Flip like button status
+      setLikedButton(!likedButton);
+      setPage(1);
     } else {
-      vacations = await vacationService.getAllVacations(selectedFilter);
+      setFilter(selectedFilter);
+      setPage(1);
     }
-
-    setVacations(vacations);
   }
 
   return (
@@ -111,6 +112,22 @@ export function VacationList() {
         ) : (
           vacations.map((v) => <VacationCard key={v._id} vacation={v} />)
         )}
+      </div>
+
+      {/* Pagination controls */}
+      <div className="pagination">
+        <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+          Prev
+        </button>
+        <span>
+          Page {page} of {totalPages}
+        </span>
+        <button
+          disabled={page === totalPages}
+          onClick={() => setPage(page + 1)}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
