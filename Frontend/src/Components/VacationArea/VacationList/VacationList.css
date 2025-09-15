@@ -4,11 +4,12 @@
 
 .VacationGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 100px;       /* controls spacing between cards */
   padding: 40px;
   justify-items: center;
 }
+
 
 /* Filter Button Styles */
 .filterButton {
