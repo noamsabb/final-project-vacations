@@ -54,11 +54,24 @@ export function LikeReport() {
         <h2>Likes Report</h2>
         <ResponsiveContainer>
           <BarChart data={graphData} barCategoryGap="30%">
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="destination" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="likes" fill="#9f1a09ff" />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(70, 130, 180, 0.2)" />
+            <XAxis dataKey="destination" stroke="#4682B4" fontSize={12} />
+            <YAxis stroke="#4682B4" fontSize={12} />
+            <Tooltip 
+              contentStyle={{
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                border: '2px solid rgba(135, 206, 235, 0.3)',
+                borderRadius: '10px',
+                boxShadow: '0 8px 25px rgba(70, 130, 180, 0.2)'
+              }}
+            />
+            <Bar dataKey="likes" fill="url(#skyGradient)" radius={[4, 4, 0, 0]} />
+            <defs>
+              <linearGradient id="skyGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#6B73FF" />
+                <stop offset="100%" stopColor="#9C27B0" />
+              </linearGradient>
+            </defs>
           </BarChart>
         </ResponsiveContainer>
       </div>

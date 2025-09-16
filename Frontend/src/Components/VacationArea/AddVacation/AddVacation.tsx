@@ -30,6 +30,7 @@ export function AddVacation({ onClose }: AddVacationProps) {
   return (
     <div className="AddVacation">
       <form onSubmit={handleSubmit(send)}>
+      <h1>Add New Vacation</h1>
         <label>Destination</label>
         <input
           type="text"

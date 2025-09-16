@@ -54,6 +54,7 @@ export function EditVacation() {
   return (
     <div className="EditVacation">
       <form onSubmit={handleSubmit(send)}>
+        <h1>Edit Vacation</h1>
         <label>Destination</label>
         <input
           type="text"

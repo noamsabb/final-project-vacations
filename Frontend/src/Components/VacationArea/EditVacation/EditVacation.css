@@ -55,6 +55,21 @@
   z-index: -1;
 }
 
+.EditVacation h1 {
+  background: linear-gradient(135deg, #6B73FF, #9C27B0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+}
+
 /* Labels */
 .EditVacation label {
   color: #4682B4;
