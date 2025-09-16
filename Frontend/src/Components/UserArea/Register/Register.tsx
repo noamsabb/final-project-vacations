@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { UserModel } from "../../../Models/UserModel";
 import { userService } from "../../../Services/UserService";
 import { notify } from "../../../Utils/Notify";
@@ -27,7 +27,7 @@ export function Register() {
 
     return (
         <div className="Register">
-
+            <h1>Join Like2Vacation ✈️</h1>
             <form onSubmit={handleSubmit(send)}>
 
                 <label>First name: </label>
@@ -46,6 +46,10 @@ export function Register() {
 
             </form>
 			
+            <p>
+                    Already a member ? <NavLink to="/login">Login now</NavLink>
+                  </p>
+
         </div>
     );
 }

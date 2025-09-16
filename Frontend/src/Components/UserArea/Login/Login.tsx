@@ -30,6 +30,7 @@ export function Login() {
   return (
     
     <div className="Login">
+      <h1>Welcome Back ✈️</h1>
       <div>
       {fromVacations && <p className="info-message">Please log in to see vacations!</p>}
     </div>

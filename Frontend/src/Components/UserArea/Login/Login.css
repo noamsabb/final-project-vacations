@@ -1,3 +1,227 @@
+/* Login page with sky theme */
 .Login {
-	
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+  position: relative;
+}
+
+.Login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(135, 206, 235, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(176, 224, 230, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Title styling */
+.Login h1 {
+  background: linear-gradient(135deg, #6B73FF, #9C27B0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+}
+
+/* Info message styling */
+.Login .info-message {
+  background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+  color: #856404;
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Form container */
+.Login form {
+  background: linear-gradient(145deg, #ffffff, #f8fbff);
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 
+    0 25px 70px rgba(70, 130, 180, 0.15),
+    0 10px 30px rgba(70, 130, 180, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(135, 206, 235, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.Login form::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  bottom: -15px;
+  left: -15px;
+  background: linear-gradient(45deg, rgba(135, 206, 235, 0.1), rgba(70, 130, 180, 0.1));
+  border-radius: 35px;
+  z-index: -1;
+}
+
+/* Labels */
+.Login label {
+  color: #4682B4;
+  font-weight: 600;
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.3px;
+  margin-bottom: 5px;
+}
+
+/* Input fields */
+.Login input {
+  padding: 14px 16px;
+  border: 2px solid rgba(135, 206, 235, 0.3);
+  border-radius: 12px;
+  font-size: 15px;
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  color: #2C5F7D;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 3px 10px rgba(70, 130, 180, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  font-family: inherit;
+}
+
+.Login input:focus {
+  outline: none;
+  border-color: rgba(70, 130, 180, 0.6);
+  box-shadow: 
+    0 8px 25px rgba(70, 130, 180, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 0 3px rgba(135, 206, 235, 0.2);
+  background: linear-gradient(145deg, #ffffff, #e6f3ff);
+  transform: translateY(-2px);
+}
+
+/* Login button */
+.Login button {
+  padding: 14px 25px;
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #6B73FF 0%, #9C27B0 100%);
+  color: white;
+  box-shadow: 
+    0 8px 25px rgba(107, 115, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.Login button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+}
+
+.Login button:hover::before {
+  left: 100%;
+}
+
+.Login button:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 12px 35px rgba(107, 115, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #5A67D8 0%, #8B5CF6 100%);
+}
+
+.Login button:active {
+  transform: translateY(0);
+}
+
+/* Register link */
+.Login p {
+  margin-top: 25px;
+  text-align: center;
+  color: #4682B4;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.Login p a {
+  color: #6B73FF;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.Login p a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #6B73FF, #9C27B0);
+  transition: width 0.3s ease;
+}
+
+.Login p a:hover::after {
+  width: 100%;
+}
+
+.Login p a:hover {
+  color: #9C27B0;
+  transform: translateY(-1px);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .Login {
+    padding: 20px 15px;
+  }
+  
+  .Login form {
+    padding: 2rem;
+    max-width: 100%;
+  }
+  
+  .Login h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
 }

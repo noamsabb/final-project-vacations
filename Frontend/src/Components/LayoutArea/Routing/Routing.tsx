@@ -8,10 +8,12 @@ import { EditVacation } from "../../VacationArea/EditVacation/EditVacation";
 import { Register } from "../../UserArea/Register/Register";
 import { Login } from "../../UserArea/Login/Login";
 import { LikeReport } from "../../AdminArea/LikeReport/LikeReport";
+import { ScrollToTop } from "../ScrollToTop/ScrollToTop";
 
 export function Routing() {
   return (
     <div className="Routing">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
 
