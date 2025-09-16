@@ -93,5 +93,5 @@ VacationSchema.pre("validate", function (next) {
 export const VacationModel = model<IVacationModel>(
   "VacationModel",
   VacationSchema,
-  "trips"
+  "vacations"
 );

@@ -1,0 +1,79 @@
+# Run this file including rebuild image:  docker compose up -d --build
+# Run this file without rebuild image:    docker compose up -d
+# Stop and remove containers:             docker compose down
+# Push all images to Docker Hub:          docker compose push
+# Pull all images from Docker Hub:        docker compose pull
+
+services:
+
+  # Our Mongo database:
+  database-service:
+
+    # Use official MongoDB image (or your own if you build a Dockerfile)
+    image: noamsabb/vacations-database:1.0
+    build: ./Database
+    container_name: vacations-database
+
+    restart: unless-stopped
+
+    # Mount persistent volume for database data
+    volumes:
+      - mongo-volume:/data/db
+
+    # Environment variables for Mongo root user
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: Alice
+      MONGO_INITDB_ROOT_PASSWORD: Wonderland
+      MONGO_INITDB_DATABASE: travelagency  
+
+    # Health check to confirm Mongo is alive
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+      start_period: 0s
+
+# ----------------------------------------------------
+
+  # Our backend (Node/Express API):
+  backend-service:
+
+    depends_on:
+      database-service:
+        condition: service_healthy
+
+    image: noamsabb/vacations-backend:1.0
+    build: ./Backend
+    container_name: vacations-backend
+
+    ports:
+      - "4001:4000"
+
+    restart: unless-stopped
+
+    environment:
+      MONGODB_CONNECTION_STRING: mongodb://Alice:Wonderland@database-service:27017/travelagency?authSource=admin
+
+# ----------------------------------------------------
+
+  # Our frontend (React):
+  frontend-service:
+
+    depends_on:
+      - backend-service
+
+    image: noamsabb/vacations-frontend:1.0
+    build: ./Frontend
+    container_name: vacations-frontend
+
+    ports:
+      - "3001:5173"
+
+    restart: unless-stopped
+
+# ----------------------------------------------------
+
+# Volumes for MongoDB persistence
+volumes:
+  mongo-volume:

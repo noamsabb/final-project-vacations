@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useTitle } from "../../../Utils/UseTitle";
 import "./Page404.css";
-import imageSource from "../../../assets/images/404.png";
+import imageSource from "../../../Assets/images/404.png";
 
 export function Page404() {
     useTitle("Like2Vacation - Page Not Found");

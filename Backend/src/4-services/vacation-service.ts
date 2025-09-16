@@ -60,8 +60,6 @@ class VacationService {
       .sort({ startDate: 1 })
       .exec();
 
-    console.log(vacations);
-
     return {
       vacations,
       total: vacations.length,
