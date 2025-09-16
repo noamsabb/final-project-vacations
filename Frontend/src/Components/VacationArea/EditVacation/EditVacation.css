@@ -1,3 +1,223 @@
+/* Page container with sky theme for full page layout */
 .EditVacation {
-	
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+  position: relative;
+}
+
+.EditVacation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(135, 206, 235, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(176, 224, 230, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Form container - styled like a card floating on the page */
+.EditVacation form {
+  background: linear-gradient(145deg, #ffffff, #f8fbff);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 
+    0 20px 60px rgba(70, 130, 180, 0.15),
+    0 8px 25px rgba(70, 130, 180, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(135, 206, 235, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.EditVacation form::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  bottom: -15px;
+  left: -15px;
+  background: linear-gradient(45deg, rgba(135, 206, 235, 0.1), rgba(70, 130, 180, 0.1));
+  border-radius: 35px;
+  z-index: -1;
+}
+
+/* Labels */
+.EditVacation label {
+  color: #4682B4;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.3px;
+  display: block;
+}
+
+/* Input fields */
+.EditVacation input,
+.EditVacation textarea {
+  padding: 12px 15px;
+  border: 2px solid rgba(135, 206, 235, 0.3);
+  border-radius: 12px;
+  font-size: 14px;
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  color: #2C5F7D;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 3px 8px rgba(70, 130, 180, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  font-family: inherit;
+}
+
+.EditVacation input:focus,
+.EditVacation textarea:focus {
+  outline: none;
+  border-color: rgba(70, 130, 180, 0.6);
+  box-shadow: 
+    0 8px 25px rgba(70, 130, 180, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 0 3px rgba(135, 206, 235, 0.2);
+  background: linear-gradient(145deg, #ffffff, #e6f3ff);
+  transform: translateY(-2px);
+}
+
+.EditVacation textarea {
+  resize: vertical;
+  min-height: 80px;
+  max-height: 120px;
+}
+
+.EditVacation input[type="file"] {
+  padding: 10px;
+  cursor: pointer;
+  background: linear-gradient(145deg, #f0f8ff, #e6f3ff);
+  font-size: 13px;
+}
+
+.EditVacation input[type="file"]:hover {
+  background: linear-gradient(145deg, #e6f3ff, #d0e8ff);
+  border-color: rgba(70, 130, 180, 0.5);
+}
+
+/* Image preview */
+.EditVacation img {
+  max-width: 200px;
+  max-height: 150px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(70, 130, 180, 0.2);
+  align-self: center;
+  margin: 10px 0;
+}
+
+/* Buttons */
+.EditVacation button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.EditVacation button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+}
+
+.EditVacation button:hover::before {
+  left: 100%;
+}
+
+/* Submit button (Edit Vacation) */
+.EditVacation button[type="submit"] {
+  background: linear-gradient(135deg, #6B73FF 0%, #9C27B0 100%);
+  color: white;
+  box-shadow: 
+    0 8px 25px rgba(107, 115, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  margin-right: 15px;
+}
+
+.EditVacation button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 12px 35px rgba(107, 115, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #5A67D8 0%, #8B5CF6 100%);
+}
+
+/* Cancel button */
+.EditVacation button[type="button"] {
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  color: #4682B4;
+  border: 2px solid rgba(135, 206, 235, 0.4);
+  box-shadow: 
+    0 6px 20px rgba(70, 130, 180, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.EditVacation button[type="button"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 10px 30px rgba(70, 130, 180, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: #2e5c8a;
+  border-color: rgba(135, 206, 235, 0.6);
+}
+
+.EditVacation button:active {
+  transform: translateY(0);
+}
+
+/* Remove default br elements spacing */
+.EditVacation br {
+  display: none;
+}
+
+/* Button container */
+.EditVacation form > button {
+  margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .EditVacation {
+    padding: 20px 15px;
+  }
+  
+  .EditVacation form {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+  
+  .EditVacation button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }

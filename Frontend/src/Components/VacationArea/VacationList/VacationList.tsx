@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import "./VacationList.css";
 import { vacationService } from "../../../Services/VacationService";
 import { VacationModel } from "../../../Models/VacationModel";
@@ -20,6 +21,7 @@ export function VacationList() {
   const [totalPages, setTotalPages] = useState(1);
   const [filter, setFilter] = useState<string>("all");
   const [likedButton, setLikedButton] = useState(false);
+  const [totalVacations, setTotalVacations] = useState<number>(0)
 
   useEffect(() => {
   if (!showAddForm) {
@@ -27,6 +29,7 @@ export function VacationList() {
       // Handling Pagination (frontEnd only for liked Vacations)
       userService.getLikedVacationsFiltered(filter, user._id)
         .then(likedVacations=>{
+          setTotalVacations(likedVacations.length);
           setTotalPages(Math.ceil(likedVacations.length / limit));
           setVacations(likedVacations.slice(((page-1)*limit),page*limit));
         })
@@ -37,6 +40,7 @@ export function VacationList() {
         .getAllVacations(filter, page, limit)
         .then((result) => {
           setVacations(result.vacations);
+          setTotalVacations(result.total);
           setTotalPages(Math.ceil(result.total / limit));
         })
         .catch(console.error);
@@ -81,7 +85,7 @@ export function VacationList() {
 
         {user?.role === "User" && (
           <button
-            className={likedButton ? "active" : ""}
+            className={`liked-button ${likedButton ? "active" : ""}`}
             onClick={() => handleFilterChange("liked")}
           >
             Liked Vacations
@@ -89,21 +93,32 @@ export function VacationList() {
         )}
       </div>
 
+
+        <span className="total-vacations">Total Vacations online: {totalVacations}</span>
+
       {user?.role === "Admin" && (
-        <button onClick={() => setShowAddForm(true)}>➕ Add Vacation</button>
+        <button 
+          className="admin-add-button"
+          onClick={() => setShowAddForm(true)}
+        >
+          ➕ Add Vacation
+        </button>
       )}
 
-      {showAddForm && (
-        <div className="modal-overlay" onClick={() => setShowAddForm(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <AddVacation
-              onClose={() => {
-                setShowAddForm(false);
-              }}
-            />
-          </div>
-        </div>
-      )}
+      {showAddForm && 
+        createPortal(
+          <div className="modal-overlay" onClick={() => setShowAddForm(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <AddVacation
+                onClose={() => {
+                  setShowAddForm(false);
+                }}
+              />
+            </div>
+          </div>,
+          document.body
+        )
+      }
 
       <div className="VacationGrid">
         {vacations.length === 0 ? (
@@ -114,8 +129,9 @@ export function VacationList() {
         ) : (
           vacations.map((v) => <VacationCard key={v._id} vacation={v} />)
         )}
-        <span>Total Vacations online: {vacations.length}</span>
+      
       </div>
+
 
       {/* Pagination controls */}
       <div className="pagination">

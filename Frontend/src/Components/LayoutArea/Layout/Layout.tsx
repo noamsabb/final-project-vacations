@@ -1,3 +1,4 @@
+import { UserMenu } from "../../UserArea/UserMenu/UserMenu";
 import { Header } from "../Header/Header";
 import { Menu } from "../Menu/Menu";
 import { Routing } from "../Routing/Routing";
@@ -7,15 +8,14 @@ export function Layout() {
     return (
         <div className="Layout">
             <header>
-                <Header />
-            </header>
-            <hr />
-            <aside>
                 <Menu />
-            </aside>            
+                <Header />
+                <UserMenu />
+            </header>          
             <main>
                 <Routing />
             </main>
+            <footer>Copyrights</footer>
         </div>
     );
 }

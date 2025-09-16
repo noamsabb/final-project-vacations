@@ -1,22 +1,238 @@
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+/* Modal styles removed - handled by VacationList.css via React Portal */
+
+.AddVacation {
+  position: relative;
 }
 
-.modal-content {
-  background: white;
-  padding: 2rem;
+.AddVacation::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  background: linear-gradient(45deg, rgba(135, 206, 235, 0.1), rgba(70, 130, 180, 0.1));
+  border-radius: 35px;
+  z-index: -1;
+}
+
+.AddVacation form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.AddVacation label {
+  color: #4682B4;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 3px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.2px;
+}
+
+.AddVacation input,
+.AddVacation textarea {
+  padding: 8px 12px;
+  border: 2px solid rgba(135, 206, 235, 0.3);
   border-radius: 10px;
-  max-width: 600px;
-  width: 90%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  font-size: 13px;
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  color: #2C5F7D;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 2px 6px rgba(70, 130, 180, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.AddVacation input:focus,
+.AddVacation textarea:focus {
+  outline: none;
+  border-color: rgba(70, 130, 180, 0.6);
+  box-shadow: 
+    0 6px 20px rgba(70, 130, 180, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 0 3px rgba(135, 206, 235, 0.2);
+  background: linear-gradient(145deg, #ffffff, #e6f3ff);
+  transform: translateY(-1px);
+}
+
+.AddVacation textarea {
+  resize: vertical;
+  min-height: 60px;
+  max-height: 100px;
+  font-family: inherit;
+}
+
+.AddVacation input[type="file"] {
+  padding: 8px;
+  cursor: pointer;
+  background: linear-gradient(145deg, #f0f8ff, #e6f3ff);
+  font-size: 12px;
+}
+
+.AddVacation input[type="file"]:hover {
+  background: linear-gradient(145deg, #e6f3ff, #d0e8ff);
+  border-color: rgba(70, 130, 180, 0.5);
+}
+
+.AddVacation button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.2px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.AddVacation button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+}
+
+.AddVacation button:hover::before {
+  left: 100%;
+}
+
+.AddVacation button[type="submit"] {
+  background: linear-gradient(135deg, #6B73FF 0%, #9C27B0 100%);
+  color: white;
+  box-shadow: 
+    0 6px 20px rgba(107, 115, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  margin-right: 15px;
+}
+
+.AddVacation button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 30px rgba(107, 115, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #5A67D8 0%, #8B5CF6 100%);
+}
+
+.AddVacation button[type="button"] {
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  color: #4682B4;
+  border: 2px solid rgba(135, 206, 235, 0.4);
+  box-shadow: 
+    0 4px 15px rgba(70, 130, 180, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.AddVacation button[type="button"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(70, 130, 180, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: #2e5c8a;
+  border-color: rgba(135, 206, 235, 0.6);
+}
+
+.AddVacation button:active {
+  transform: translateY(0);
+}
+
+/* Form group styling */
+.AddVacation form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 1rem;
+    margin: 10px;
+    width: calc(100vw - 20px);
+    max-width: 380px;
+    min-width: 280px;
+    max-height: 85vh;
+  }
+  
+  .AddVacation form {
+    gap: 8px;
+  }
+  
+  .AddVacation button {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  .AddVacation input,
+  .AddVacation textarea {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .AddVacation label {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  
+  .AddVacation textarea {
+    min-height: 50px;
+    max-height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 0.8rem;
+    margin: 5px;
+    width: calc(100vw - 10px);
+    max-width: 350px;
+    min-width: 260px;
+    max-height: 80vh;
+  }
+  
+  .AddVacation form {
+    gap: 6px;
+  }
+  
+  .AddVacation button {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+  
+  .AddVacation input,
+  .AddVacation textarea {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+  
+  .AddVacation label {
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+  
+  .AddVacation textarea {
+    min-height: 45px;
+    max-height: 70px;
+  }
+  
+  .AddVacation input[type="file"] {
+    font-size: 10px;
+    padding: 6px;
+  }
+}
+
+/* Ensure modal stays centered and responsive */
+@media (max-height: 600px) {
+  .modal-content {
+    max-height: 95vh;
+    margin: 5px;
+  }
 }

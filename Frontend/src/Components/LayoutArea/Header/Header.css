@@ -1,0 +1,35 @@
+.Header {
+  display: flex;
+  justify-content: center;  /* center the whole block */
+  align-items: center;
+  padding: 20px;
+}
+
+/* Block containing plane + h1 + sun */
+.header-block {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* space between plane, title, sun */
+}
+
+/* Style text */
+.Header h1 {
+  margin: 0;
+  background: linear-gradient(135deg, #4682B4, #87CEEB, #5DADE2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 35px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+}
+
+/* Icons inherit flex alignment */
+.plane-left {
+  color: #4682B4;
+}
+
+.sun {
+  color: #87CEEB;
+}
