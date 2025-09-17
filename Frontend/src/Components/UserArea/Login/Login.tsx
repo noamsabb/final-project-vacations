@@ -10,7 +10,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 export function Login() {
-    useTitle("Like2Vacation - Login");
+  useTitle("Like2Vacation - Login");
   const { register, handleSubmit } = useForm<CredentialsModel>();
   const navigate = useNavigate();
   const location = useLocation();
@@ -25,22 +25,22 @@ export function Login() {
       notify.error(err);
     }
   }
-  
 
   return (
-    
     <div className="Login">
       <h1>Welcome Back ✈️</h1>
       <div>
-      {fromVacations && <p className="info-message">Please log in to see vacations!</p>}
-    </div>
+        {fromVacations && (
+          <p className="info-message">Please log in to see vacations!</p>
+        )}
+      </div>
 
       <form onSubmit={handleSubmit(send)}>
         <label>Email: </label>
         <input type="email" {...register("email")} required />
 
         <label>Password: </label>
-        <input type="password" {...register("password")} required/>
+        <input type="password" {...register("password")} required />
 
         <button>Login</button>
       </form>

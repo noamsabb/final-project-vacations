@@ -12,7 +12,7 @@ type AddVacationProps = {
 };
 
 export function AddVacation({ onClose }: AddVacationProps) {
-    useTitle("Like2Vacation - Add Vacation");
+  useTitle("Like2Vacation - Add Vacation");
   const navigate = useNavigate();
 
   const { register, handleSubmit } = useForm<VacationModel>();
@@ -37,7 +37,9 @@ export function AddVacation({ onClose }: AddVacationProps) {
         }, 2000);
       } else {
         // For other errors, show the error but keep modal open
-        notify.error(err.message || "Failed to add vacation. Please try again.");
+        notify.error(
+          err.message || "Failed to add vacation. Please try again."
+        );
       }
     }
   }
@@ -45,7 +47,7 @@ export function AddVacation({ onClose }: AddVacationProps) {
   return (
     <div className="AddVacation">
       <form onSubmit={handleSubmit(send)}>
-      <h1>Add New Vacation</h1>
+        <h1>Add New Vacation</h1>
         <label>Destination</label>
         <input
           type="text"

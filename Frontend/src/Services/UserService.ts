@@ -13,15 +13,12 @@ interface LikeVacationResponse {
   vacation: VacationModel;
 }
 
-
 class UserService {
-
-
   // Helper method to update user in both Redux store and localStorage token
   private updateUserState(updatedUser: UserModel): void {
     // Update Redux store
     store.dispatch(userSlice.actions.initUser(updatedUser));
-    
+
     // Create a new token-like object to store in localStorage
     // Note: This is a simplified approach - in production, you'd want the server to issue a new JWT
     const existingToken = localStorage.getItem("token");
@@ -111,22 +108,32 @@ class UserService {
     localStorage.removeItem("userTokenData");
   }
 
-  public async likeVacation(userId: string, vacationId: string): Promise<AxiosResponse<LikeVacationResponse>> {
-    const response = await axios.put(appConfig.userUrl + userId + "/like", { vacationId });
-    
+  public async likeVacation(
+    userId: string,
+    vacationId: string
+  ): Promise<AxiosResponse<LikeVacationResponse>> {
+    const response = await axios.put(appConfig.userUrl + userId + "/like", {
+      vacationId,
+    });
+
     // Update user state with the fresh data from the response
     if (response.data.user) {
       this.updateUserState(response.data.user);
     }
-    
+
     return response;
   }
 
-   public async getLikedVacationsFiltered(filter: string, userId: string): Promise<VacationModel[]> {
-        const response = await axios.get<VacationModel[]>(`${appConfig.userUrl}${userId}/liked-filtered?filter=${filter}`);
-        const vacations = response.data;
-        return vacations;
-    }
+  public async getLikedVacationsFiltered(
+    filter: string,
+    userId: string
+  ): Promise<VacationModel[]> {
+    const response = await axios.get<VacationModel[]>(
+      `${appConfig.userUrl}${userId}/liked-filtered?filter=${filter}`
+    );
+    const vacations = response.data;
+    return vacations;
+  }
 }
 
 export const userService = new UserService();

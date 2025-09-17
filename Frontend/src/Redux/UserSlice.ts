@@ -9,7 +9,7 @@ const initialState: UserModel | null = null;
 function normalizeUserRole(user: UserModel): UserModel {
   return {
     ...user,
-    role: user.role === "Admin" ? Role.Admin : Role.User, 
+    role: user.role === "Admin" ? Role.Admin : Role.User,
   };
 }
 
@@ -25,8 +25,8 @@ export const userSlice = createSlice({
     },
     setUser(_state, action: PayloadAction<UserModel>) {
       return normalizeUserRole(action.payload);
-    }
-  }
+    },
+  },
 });
 
 export const { initUser, logoutUser, setUser } = userSlice.actions;

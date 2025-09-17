@@ -35,7 +35,6 @@ export function LikeReport() {
 
   return (
     <div className="LikeReport">
-
       <div className="stats">
         <span>Stats:</span>
         <br />
@@ -45,7 +44,7 @@ export function LikeReport() {
         <span>Total Likes: {totalLikes}</span>
         <br />
         <button onClick={vacationService.getVacationCsv}>
-          Download Csv File 📄{" "}
+          Download Csv File 📄
         </button>
       </div>
 
@@ -53,18 +52,25 @@ export function LikeReport() {
         <h2>Likes Report</h2>
         <ResponsiveContainer width="100%" height={400}>
           <BarChart data={graphData} barCategoryGap="30%">
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(70, 130, 180, 0.2)" />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke="rgba(70, 130, 180, 0.2)"
+            />
             <XAxis dataKey="destination" stroke="#4682B4" fontSize={12} />
             <YAxis stroke="#4682B4" fontSize={12} />
-            <Tooltip 
+            <Tooltip
               contentStyle={{
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                border: '2px solid rgba(135, 206, 235, 0.3)',
-                borderRadius: '10px',
-                boxShadow: '0 8px 25px rgba(70, 130, 180, 0.2)'
+                backgroundColor: "rgba(255, 255, 255, 0.95)",
+                border: "2px solid rgba(135, 206, 235, 0.3)",
+                borderRadius: "10px",
+                boxShadow: "0 8px 25px rgba(70, 130, 180, 0.2)",
               }}
             />
-            <Bar dataKey="likes" fill="url(#skyGradient)" radius={[4, 4, 0, 0]} />
+            <Bar
+              dataKey="likes"
+              fill="url(#skyGradient)"
+              radius={[4, 4, 0, 0]}
+            />
             <defs>
               <linearGradient id="skyGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#6B73FF" />

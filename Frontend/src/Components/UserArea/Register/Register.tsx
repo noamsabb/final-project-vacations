@@ -15,7 +15,7 @@ export function Register() {
   async function send(user: UserModel) {
     try {
       await userService.register(user);
-      notify.success("Welcome!");
+      notify.success("Welcome to the family!");
       navigate("/vacations");
     } catch (err: any) {
       notify.error(err);
@@ -50,7 +50,7 @@ export function Register() {
           {...register("email", {
             required: "Email is required",
             pattern: {
-              value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, 
+              value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
               message: "Please enter a valid email address",
             },
           })}

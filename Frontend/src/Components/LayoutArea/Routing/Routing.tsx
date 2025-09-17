@@ -29,7 +29,6 @@ export function Routing() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
-
         <Route path="*" element={<Page404 />} />
       </Routes>
     </div>

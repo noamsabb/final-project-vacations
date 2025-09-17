@@ -1,0 +1,315 @@
+[{
+  "_id": {
+    "$oid": "68ad6294c542084ff8cb3bf0"
+  },
+  "destination": "Tokyo",
+  "description": "Tokyo is a thrilling fusion of futuristic innovation and timeless tradition. Explore neon-lit neighborhoods like Shibuya and Akihabara, visit serene shrines, eat Michelin-star ramen, and discover the city’s unique pop culture. It’s fast-paced, ultra-modern, and endlessly fascinating.",
+  "startDate": {
+    "$date": "2025-06-25T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-07-10T00:00:00.000Z"
+  },
+  "price": 1300,
+  "imageName": "Tokyo.jpg",
+  "likes": 122,
+  "updatedAt": {
+    "$date": "2025-09-14T18:47:15.408Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ad63cec542084ff8cb3bf2"
+  },
+  "destination": "Barcelona",
+  "description": "Barcelona is an artistic city by the sea, famous for its Gaudí architecture, golden beaches, and delicious tapas. Stroll down La Rambla, admire the Sagrada Família, and catch the sunset from Park Güell. It’s lively, colorful, and packed with Mediterranean charm.",
+  "startDate": {
+    "$date": "2025-08-22T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-09-30T00:00:00.000Z"
+  },
+  "price": 900,
+  "imageName": "Barcelona.jpg",
+  "likes": 13,
+  "updatedAt": {
+    "$date": "2025-09-17T00:15:50.785Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ad6450c542084ff8cb3bf5"
+  },
+  "destination": "Bali",
+  "description": "Bali is a lush island escape filled with emerald rice terraces, volcanic mountains, and surf-friendly beaches. From spiritual retreats in Ubud to luxury resorts in Seminyak, it’s an ideal destination for relaxation, adventure, and cultural exploration — all in one tropical paradise.",
+  "startDate": {
+    "$date": "2026-02-12T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-02-20T00:00:00.000Z"
+  },
+  "price": "1100",
+  "imageName": "Bali.jpg",
+  "likes": 204,
+  "updatedAt": {
+    "$date": "2025-09-14T17:54:51.682Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ad64a5c542084ff8cb3bf6"
+  },
+  "destination": "Marrakech",
+  "description": "Marrakech enchants visitors with its maze-like souks, colorful palaces, and fragrant spice markets. Ride a camel through the desert, relax in a traditional riad, and sip mint tea as the call to prayer echoes through the medina. It’s a sensory journey like no other.",
+  "startDate": {
+    "$date": "2026-06-12T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-06-22T00:00:00.000Z"
+  },
+  "price": "1000",
+  "imageName": "Marrakech.jpg",
+  "likes": 70,
+  "updatedAt": {
+    "$date": "2025-09-11T10:20:19.789Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ad65d8c542084ff8cb3bf7"
+  },
+  "destination": "Cape Town",
+  "description": "Cape Town is where mountains meet the sea in spectacular fashion. Nestled beneath the iconic Table Mountain, this vibrant coastal city offers stunning beaches, rich local culture, wildlife safaris just outside town, and world-renowned vineyards nearby. A perfect mix of nature, adventure, and urban charm.",
+  "startDate": {
+    "$date": "2026-08-12T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-08-25T00:00:00.000Z"
+  },
+  "price": "1500",
+  "imageName": "CapeTown.jpg",
+  "likes": 29,
+  "updatedAt": {
+    "$date": "2025-09-14T18:14:20.238Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af4e5583c11d4b27526838"
+  },
+  "destination": "Reykjavík",
+  "description": "Reykjavík, the world’s northernmost capital, is a small but lively city surrounded by stunning Icelandic nature. After exploring its colorful streets and local art scene, take day trips to see geysers, glaciers, and the Northern Lights — all just a short drive away.",
+  "startDate": {
+    "$date": "2025-12-25T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-01-10T00:00:00.000Z"
+  },
+  "price": 1500,
+  "imageName": "2bae7df3-f6e1-4146-8e9d-cb361785104c.jpg",
+  "createdAt": {
+    "$date": "2025-08-27T18:28:37.042Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-14T17:54:49.868Z"
+  },
+  "likes": 31
+},
+{
+  "_id": {
+    "$oid": "68b82688c72d7833b041c726"
+  },
+  "destination": "Tel Aviv",
+  "description": "Tel Aviv is a vibrant coastal city on the shores of the Mediterranean, known for its golden beaches, lively nightlife, and modern skyscrapers alongside charming Bauhaus architecture. Often called “the city that never sleeps,” it offers bustling markets, trendy cafes, and a thriving cultural scene. Tel Aviv blends energy, innovation, and relaxation in one unforgettable destination.",
+  "startDate": {
+    "$date": "2025-09-12T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-11-21T00:00:00.000Z"
+  },
+  "price": 500,
+  "likes": 155,
+  "imageName": "a8f37128-5fab-463e-ac92-978a4e92ee79.jpg",
+  "createdAt": {
+    "$date": "2025-09-03T11:29:12.866Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-16T23:45:25.258Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68c6aef1c634342cf66eaa1b"
+  },
+  "destination": "Thailand",
+  "description": "Thailand is a tropical paradise known for its golden beaches, exotic street food, and warm hospitality. From the bustling markets and temples of Bangkok to the tranquil islands like Phuket and Koh Samui, it’s a perfect mix of relaxation, adventure, and cultural immersion.",
+  "startDate": {
+    "$date": "2025-11-10T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-11-22T00:00:00.000Z"
+  },
+  "price": 1050,
+  "likes": 200,
+  "imageName": "c0eb4f40-1bf3-4468-8b19-f72f591167d9.jpg",
+  "createdAt": {
+    "$date": "2025-09-14T12:02:57.711Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-14T17:54:35.399Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68c6afa6c634342cf66eaa34"
+  },
+  "destination": "Mexico",
+  "description": "Mexico offers a vibrant tapestry of colorful culture, flavorful cuisine, and stunning natural wonders. Whether you're exploring the ancient ruins of Chichen Itza, snorkeling in the cenotes of the Yucatán, or enjoying the nightlife of Mexico City, there's an adventure for every type of traveler.",
+  "startDate": {
+    "$date": "2026-01-19T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-01-26T00:00:00.000Z"
+  },
+  "price": 1200,
+  "likes": 20,
+  "imageName": "ca9922ea-e875-47e8-8cea-070deecbf006.jpg",
+  "createdAt": {
+    "$date": "2025-09-14T12:05:58.010Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-14T17:54:50.865Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68c6b03fc634342cf66eaa38"
+  },
+  "destination": "Paris",
+  "description": "Paris is the perfect mix of romance, culture, and charm. Stroll by the Seine, enjoy world-famous landmarks like the Eiffel Tower and the Louvre, and treat yourself to cozy cafés and fine French cuisine. Every corner of the city has something magical to discover.",
+  "startDate": {
+    "$date": "2025-10-20T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-10-27T00:00:00.000Z"
+  },
+  "price": 900,
+  "likes": 500,
+  "imageName": "4584e259-f672-4736-a298-1991cb216d0d.jpg",
+  "createdAt": {
+    "$date": "2025-09-14T12:08:31.871Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-14T18:14:13.995Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68c6b1f4c634342cf66eaa3c"
+  },
+  "destination": "Rhodes",
+  "description": "Rhodes is a Greek island where history and sunshine meet. Wander through the medieval Old Town, relax on golden beaches, and enjoy crystal-clear waters perfect for swimming or sailing. It’s a mix of ancient culture and island paradise.",
+  "startDate": {
+    "$date": "2026-04-06T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-04-13T00:00:00.000Z"
+  },
+  "price": 600,
+  "likes": 150,
+  "imageName": "d1a4fd23-8d81-473c-9b1a-9b825fbf8427.jpg",
+  "createdAt": {
+    "$date": "2025-09-14T12:15:48.129Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-14T18:14:11.131Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68c6b24bc634342cf66eaa3f"
+  },
+  "destination": "Ayia Napa",
+  "description": "Ayia Napa in Cyprus is famous for its lively beaches, turquoise waters, and buzzing nightlife. By day, enjoy water sports and hidden coves, and by night, explore the vibrant clubs and seaside restaurants.",
+  "startDate": {
+    "$date": "2026-06-01T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-06-09T00:00:00.000Z"
+  },
+  "price": 300,
+  "likes": 200,
+  "imageName": "21dffc2e-d831-491e-9f54-c71c3338d23f.jpg",
+  "createdAt": {
+    "$date": "2025-09-14T12:17:15.857Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-14T12:17:15.857Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68c6b773c634342cf66eaa78"
+  },
+  "destination": "Abu Dhabi",
+  "description": "Abu Dhabi offers elegance and tradition with a modern twist. Visit the stunning Sheikh Zayed Grand Mosque, explore cultural museums, or unwind on beautiful beaches along the Corniche. It’s a refined gateway to Arabian culture.",
+  "startDate": {
+    "$date": "2025-10-16T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-10-19T00:00:00.000Z"
+  },
+  "price": 150,
+  "likes": 200,
+  "imageName": "9a56ed06-166a-4caf-9b9e-97067a2724ce.jpg",
+  "createdAt": {
+    "$date": "2025-09-14T12:39:15.465Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-16T23:35:16.883Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68c6b8dfc634342cf66eaa7e"
+  },
+  "destination": "Dubai",
+  "description": "Dubai dazzles with futuristic skyscrapers, luxury shopping, and golden deserts. From the Burj Khalifa’s breathtaking views to relaxing at pristine beaches, it’s a city where adventure and glamour go hand in hand.",
+  "startDate": {
+    "$date": "2026-04-01T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2026-04-08T00:00:00.000Z"
+  },
+  "price": 300,
+  "likes": 100,
+  "imageName": "c1ff1771-e3cd-4704-9047-f21a7ae2a49c.jpg",
+  "createdAt": {
+    "$date": "2025-09-14T12:45:19.891Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-14T17:54:57.689Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68c9f41ed876136f3a86197f"
+  },
+  "destination": "Jerusalem",
+  "description": "Jerusalem is a city of profound history and spiritual significance, often called the heart of three major religions: Judaism, Christianity, and Islam. Walking through its ancient stone streets, you’ll discover treasures like the Western Wall, the Church of the Holy Sepulchre, and the Dome of the Rock. Beyond its sacred landmarks, Jerusalem blends tradition with modern life, offering vibrant markets, diverse cuisine, and a unique cultural atmosphere. It’s a city where history, faith, and daily life intertwine, creating an unforgettable experience for every visitor.",
+  "startDate": {
+    "$date": "2025-10-15T00:00:00.000Z"
+  },
+  "endDate": {
+    "$date": "2025-10-19T00:00:00.000Z"
+  },
+  "price": 150,
+  "likes": 26,
+  "imageName": "5f663c43-0700-40ac-99a7-80c6a3ec63a0.jpg",
+  "createdAt": {
+    "$date": "2025-09-16T23:34:54.066Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-16T23:34:54.066Z"
+  }
+}]

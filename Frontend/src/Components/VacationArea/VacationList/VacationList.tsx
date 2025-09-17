@@ -10,9 +10,10 @@ import { AppState } from "../../../Redux/Store";
 import { AddVacation } from "../AddVacation/AddVacation";
 import { userService } from "../../../Services/UserService";
 import { useTitle } from "../../../Utils/UseTitle";
+import { scrollToTop } from "../../LayoutArea/ScrollToTop/ScrollToTop";
 
 export function VacationList() {
-    useTitle("Like2Vacation - Vacations");
+  useTitle("Like2Vacation - Vacations");
   const user = useSelector((state: AppState) => state.user);
   const [vacations, setVacations] = useState<VacationModel[]>([]);
   const [showAddForm, setShowAddForm] = useState(false);
@@ -21,48 +22,40 @@ export function VacationList() {
   const [totalPages, setTotalPages] = useState(1);
   const [filter, setFilter] = useState<string>("all");
   const [likedButton, setLikedButton] = useState(false);
-  const [totalVacations, setTotalVacations] = useState<number>(0)
+  const [totalVacations, setTotalVacations] = useState<number>(0);
 
   const [refreshTrigger, setRefreshTrigger] = useState(0);
 
   useEffect(() => {
-  if (!showAddForm) {
-    if (likedButton) {
-      // Handling Pagination (frontEnd only for liked Vacations)
-      userService.getLikedVacationsFiltered(filter, user._id)
-        .then(likedVacations=>{
-          setTotalVacations(likedVacations.length);
-          setTotalPages(Math.ceil(likedVacations.length / limit));
-          setVacations(likedVacations.slice(((page-1)*limit),page*limit));
-        })
-        .catch(console.error);
-    } else {
-      // Handling Pagination (BackEnd and frontEnd for not liked Vacations)
-      vacationService
-        .getAllVacations(filter, page, limit)
-        .then((result) => {
-          setVacations(result.vacations);
-          setTotalVacations(result.total);
-          setTotalPages(Math.ceil(result.total / limit));
-        })
-        .catch(console.error);
+    if (!showAddForm) {
+      if (likedButton) {
+        // Handling Pagination (frontEnd only for liked Vacations)
+        userService
+          .getLikedVacationsFiltered(filter, user._id)
+          .then((likedVacations) => {
+            setTotalVacations(likedVacations.length);
+            setTotalPages(Math.ceil(likedVacations.length / limit));
+            setVacations(
+              likedVacations.slice((page - 1) * limit, page * limit)
+            );
+          })
+          .catch(console.error);
+      } else {
+        // Handling Pagination (BackEnd and frontEnd for not liked Vacations)
+        vacationService
+          .getAllVacations(filter, page, limit)
+          .then((result) => {
+            setVacations(result.vacations);
+            setTotalVacations(result.total);
+            setTotalPages(Math.ceil(result.total / limit));
+          })
+          .catch(console.error);
+      }
     }
-  }
-}, [page, filter, showAddForm, likedButton, refreshTrigger]);
+  }, [page, filter, showAddForm, likedButton, refreshTrigger]);
 
   function handleVacationDeleted() {
-    setRefreshTrigger(prev => prev + 1);
-  }
-
-  function scrollToTop() {
-    // Scroll the window
-    window.scrollTo(0, 0);
-    
-    // Also scroll the main content area
-    const mainElement = document.querySelector('main');
-    if (mainElement) {
-      mainElement.scrollTo(0, 0);
-    }
+    setRefreshTrigger((prev) => prev + 1);
   }
 
   async function handleFilterChange(selectedFilter: string) {
@@ -109,11 +102,13 @@ export function VacationList() {
         )}
       </div>
 
+      <span className="total-vacations">
+        Total Vacations online: {totalVacations}
+      </span>
 
-        <span className="total-vacations">Total Vacations online: {totalVacations}</span>
-
+      {/*Admin add vacation button and pop-up form window*/}
       {user?.role === "Admin" && (
-        <button 
+        <button
           className="admin-add-button"
           onClick={() => setShowAddForm(true)}
         >
@@ -121,7 +116,7 @@ export function VacationList() {
         </button>
       )}
 
-      {showAddForm && 
+      {showAddForm &&
         createPortal(
           <div className="modal-overlay" onClick={() => setShowAddForm(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -133,8 +128,7 @@ export function VacationList() {
             </div>
           </div>,
           document.body
-        )
-      }
+        )}
 
       <div className="VacationGrid">
         {vacations.length === 0 ? (
@@ -143,16 +137,20 @@ export function VacationList() {
             Check again soon!
           </p>
         ) : (
-          vacations.map((v) => <VacationCard key={v._id} vacation={v} onVacationDeleted={handleVacationDeleted} />)
+          vacations.map((v) => (
+            <VacationCard
+              key={v._id}
+              vacation={v}
+              onVacationDeleted={handleVacationDeleted}
+            />
+          ))
         )}
-      
       </div>
-
 
       {/* Pagination controls */}
       <div className="pagination">
-        <button 
-          disabled={page === 1} 
+        <button
+          disabled={page === 1}
           onClick={() => {
             setPage(page - 1);
             scrollToTop();

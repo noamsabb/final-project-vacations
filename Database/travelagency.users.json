@@ -1,0 +1,150 @@
+[{
+  "_id": {
+    "$oid": "68af59baabb35f0c43bef885"
+  },
+  "firstName": "Noam",
+  "lastName": "Sabban",
+  "email": "sabban.noam@gmail.com",
+  "password": "144e00c75d8eb88ce5716d129ce331d4324f38e4d04697adc864e3cefc020a04db8e8e3e05312beb3eb69b85245cede06659ec531fc76465a1343b0f9d1b04d5",
+  "roleId": 2,
+  "likedVacations": [],
+  "createdAt": {
+    "$date": "2025-08-27T19:17:14.474Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-31T08:05:31.985Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af5a68abb35f0c43bef88e"
+  },
+  "firstName": "Lisa",
+  "lastName": "Simpson",
+  "email": "lisa@gmail.com",
+  "password": "144e00c75d8eb88ce5716d129ce331d4324f38e4d04697adc864e3cefc020a04db8e8e3e05312beb3eb69b85245cede06659ec531fc76465a1343b0f9d1b04d5",
+  "roleId": 2,
+  "likedVacations": [],
+  "createdAt": {
+    "$date": "2025-08-27T19:20:08.106Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-01T16:21:54.256Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af5a6fabb35f0c43bef891"
+  },
+  "firstName": "bart",
+  "lastName": "Simpson",
+  "email": "bart@gmail.com",
+  "password": "144e00c75d8eb88ce5716d129ce331d4324f38e4d04697adc864e3cefc020a04db8e8e3e05312beb3eb69b85245cede06659ec531fc76465a1343b0f9d1b04d5",
+  "roleId": 2,
+  "likedVacations": [
+    {
+      "$oid": "68ad64a5c542084ff8cb3bf6"
+    },
+    {
+      "$oid": "68c6aef1c634342cf66eaa1b"
+    },
+    {
+      "$oid": "68af4e5583c11d4b27526838"
+    },
+    {
+      "$oid": "68c6afa6c634342cf66eaa34"
+    },
+    {
+      "$oid": "68ad6450c542084ff8cb3bf5"
+    },
+    {
+      "$oid": "68c6b8dfc634342cf66eaa7e"
+    },
+    {
+      "$oid": "68c6b1f4c634342cf66eaa3c"
+    },
+    {
+      "$oid": "68c6b03fc634342cf66eaa38"
+    },
+    {
+      "$oid": "68b82688c72d7833b041c726"
+    },
+    {
+      "$oid": "68ad63cec542084ff8cb3bf2"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-08-27T19:20:15.713Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-17T00:15:50.754Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af5a76abb35f0c43bef894"
+  },
+  "firstName": "Marge",
+  "lastName": "Simpson",
+  "email": "marge@gmail.com",
+  "password": "144e00c75d8eb88ce5716d129ce331d4324f38e4d04697adc864e3cefc020a04db8e8e3e05312beb3eb69b85245cede06659ec531fc76465a1343b0f9d1b04d5",
+  "roleId": 1,
+  "likedVacations": [],
+  "createdAt": {
+    "$date": "2025-08-27T19:20:22.941Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-27T19:20:22.941Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af5a7eabb35f0c43bef897"
+  },
+  "firstName": "Homer",
+  "lastName": "Simpson",
+  "email": "homer@gmail.com",
+  "password": "144e00c75d8eb88ce5716d129ce331d4324f38e4d04697adc864e3cefc020a04db8e8e3e05312beb3eb69b85245cede06659ec531fc76465a1343b0f9d1b04d5",
+  "roleId": 1,
+  "likedVacations": [],
+  "createdAt": {
+    "$date": "2025-08-27T19:20:30.713Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-27T19:20:30.713Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68b698d0ef4c5dc06534e445"
+  },
+  "firstName": "Clara",
+  "lastName": "Sabban",
+  "email": "clara@gmail.com",
+  "password": "144e00c75d8eb88ce5716d129ce331d4324f38e4d04697adc864e3cefc020a04db8e8e3e05312beb3eb69b85245cede06659ec531fc76465a1343b0f9d1b04d5",
+  "likedVacations": [],
+  "roleId": 2,
+  "createdAt": {
+    "$date": "2025-09-02T07:12:16.073Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-02T07:12:16.073Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ca030ec6b2a711921ed292"
+  },
+  "firstName": "test",
+  "lastName": "test",
+  "email": "test@gmail.com",
+  "password": "144e00c75d8eb88ce5716d129ce331d4324f38e4d04697adc864e3cefc020a04db8e8e3e05312beb3eb69b85245cede06659ec531fc76465a1343b0f9d1b04d5",
+  "likedVacations": [],
+  "roleId": 2,
+  "createdAt": {
+    "$date": "2025-09-17T00:38:38.053Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-17T00:38:38.053Z"
+  }
+}]

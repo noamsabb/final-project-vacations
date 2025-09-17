@@ -5,13 +5,17 @@
 }
 
 .AddVacation::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -10px;
   right: -10px;
   bottom: -10px;
   left: -10px;
-  background: linear-gradient(45deg, rgba(135, 206, 235, 0.1), rgba(70, 130, 180, 0.1));
+  background: linear-gradient(
+    45deg,
+    rgba(135, 206, 235, 0.1),
+    rgba(70, 130, 180, 0.1)
+  );
   border-radius: 35px;
   z-index: -1;
 }
@@ -23,7 +27,7 @@
 }
 
 .AddVacation h1 {
-  background: linear-gradient(135deg, #6B73FF, #9C27B0);
+  background: linear-gradient(135deg, #6b73ff, #9c27b0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -38,7 +42,7 @@
 }
 
 .AddVacation label {
-  color: #4682B4;
+  color: #4682b4;
   font-weight: 600;
   font-size: 13px;
   margin-bottom: 3px;
@@ -53,10 +57,9 @@
   border-radius: 10px;
   font-size: 13px;
   background: linear-gradient(145deg, #ffffff, #f0f8ff);
-  color: #2C5F7D;
+  color: #2c5f7d;
   transition: all 0.3s ease;
-  box-shadow: 
-    0 2px 6px rgba(70, 130, 180, 0.1),
+  box-shadow: 0 2px 6px rgba(70, 130, 180, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
@@ -64,10 +67,8 @@
 .AddVacation textarea:focus {
   outline: none;
   border-color: rgba(70, 130, 180, 0.6);
-  box-shadow: 
-    0 6px 20px rgba(70, 130, 180, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 0 0 3px rgba(135, 206, 235, 0.2);
+  box-shadow: 0 6px 20px rgba(70, 130, 180, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 0 3px rgba(135, 206, 235, 0.2);
   background: linear-gradient(145deg, #ffffff, #e6f3ff);
   transform: translateY(-1px);
 }
@@ -106,13 +107,18 @@
 }
 
 .AddVacation button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
   transition: left 0.6s;
 }
 
@@ -121,10 +127,9 @@
 }
 
 .AddVacation button[type="submit"] {
-  background: linear-gradient(135deg, #6B73FF 0%, #9C27B0 100%);
+  background: linear-gradient(135deg, #6b73ff 0%, #9c27b0 100%);
   color: white;
-  box-shadow: 
-    0 6px 20px rgba(107, 115, 255, 0.3),
+  box-shadow: 0 6px 20px rgba(107, 115, 255, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   margin-right: 15px;
@@ -132,25 +137,22 @@
 
 .AddVacation button[type="submit"]:hover {
   transform: translateY(-2px);
-  box-shadow: 
-    0 10px 30px rgba(107, 115, 255, 0.4),
+  box-shadow: 0 10px 30px rgba(107, 115, 255, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  background: linear-gradient(135deg, #5A67D8 0%, #8B5CF6 100%);
+  background: linear-gradient(135deg, #5a67d8 0%, #8b5cf6 100%);
 }
 
 .AddVacation button[type="button"] {
   background: linear-gradient(145deg, #ffffff, #f0f8ff);
-  color: #4682B4;
+  color: #4682b4;
   border: 2px solid rgba(135, 206, 235, 0.4);
-  box-shadow: 
-    0 4px 15px rgba(70, 130, 180, 0.2),
+  box-shadow: 0 4px 15px rgba(70, 130, 180, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .AddVacation button[type="button"]:hover {
   transform: translateY(-2px);
-  box-shadow: 
-    0 8px 25px rgba(70, 130, 180, 0.3),
+  box-shadow: 0 8px 25px rgba(70, 130, 180, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   color: #2e5c8a;
   border-color: rgba(135, 206, 235, 0.6);
@@ -176,27 +178,27 @@
     min-width: 280px;
     max-height: 85vh;
   }
-  
+
   .AddVacation form {
     gap: 8px;
   }
-  
+
   .AddVacation button {
     padding: 8px 16px;
     font-size: 12px;
   }
-  
+
   .AddVacation input,
   .AddVacation textarea {
     padding: 6px 10px;
     font-size: 12px;
   }
-  
+
   .AddVacation label {
     font-size: 12px;
     margin-bottom: 2px;
   }
-  
+
   .AddVacation textarea {
     min-height: 50px;
     max-height: 80px;
@@ -212,32 +214,32 @@
     min-width: 260px;
     max-height: 80vh;
   }
-  
+
   .AddVacation form {
     gap: 6px;
   }
-  
+
   .AddVacation button {
     padding: 8px 14px;
     font-size: 11px;
   }
-  
+
   .AddVacation input,
   .AddVacation textarea {
     padding: 6px 8px;
     font-size: 11px;
   }
-  
+
   .AddVacation label {
     font-size: 11px;
     margin-bottom: 2px;
   }
-  
+
   .AddVacation textarea {
     min-height: 45px;
     max-height: 70px;
   }
-  
+
   .AddVacation input[type="file"] {
     font-size: 10px;
     padding: 6px;

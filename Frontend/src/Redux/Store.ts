@@ -6,14 +6,14 @@ import { userSlice } from "./UserSlice";
 
 // The entire application global state (all slices data):
 export type AppState = {
-    // products: ProductModel[],
-    user: UserModel;
+  // products: ProductModel[],
+  user: UserModel;
 };
 
 // Store - the main redux object handling it all:
 export const store = configureStore<AppState>({
-    reducer: {
-        // products: productSlice.reducer,
-        user: userSlice.reducer
-    }
+  reducer: {
+    // products: productSlice.reducer,
+    user: userSlice.reducer,
+  },
 });

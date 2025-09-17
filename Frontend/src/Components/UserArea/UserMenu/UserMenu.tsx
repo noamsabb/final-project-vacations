@@ -32,9 +32,17 @@ export function UserMenu() {
       {user?._id && (
         <div>
           <span>
-            Hello, <br />{user.firstName} {user.lastName} 
+            Hello, <br />
+            {user.firstName} {user.lastName}
           </span>
-          <span> {user.role == "Admin" ? <ShieldUser size={20}/> : <User size={20} />}</span>
+          <span>
+            
+            {user.role == "Admin" ? (
+              <ShieldUser size={20} />
+            ) : (
+              <User size={20} />
+            )}
+          </span>
           <NavLink to="/home" onClick={logout}>
             Logout
           </NavLink>

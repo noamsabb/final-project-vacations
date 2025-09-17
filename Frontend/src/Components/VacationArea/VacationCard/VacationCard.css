@@ -1,6 +1,6 @@
 .vacation-card {
-  width: 400px;       /* or use a percentage if responsive */
-  height: 520px; 
+  width: 400px; /* or use a percentage if responsive */
+  height: 520px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +59,7 @@
   top: 12px;
   left: 0;
   height: 2px;
-  width: 120px; 
+  width: 120px;
   overflow: hidden;
   transform: rotate(45deg);
   transform-origin: left center;
@@ -77,20 +77,17 @@
   transition: width 0.6s ease-in-out;
 }
 
-
 .plane {
   position: absolute;
   top: -15px;
   left: -25px;
   transform: rotate(75deg);
-  font-size: 18px; 
+  font-size: 18px;
   transition: transform 0.5s ease, left 0.5s ease;
 }
 
 .cloud-shape:hover .plane {
-
   transform: translate(90px, 90px) rotate(85deg);
-
 }
 
 .cloud-shape:hover .trail::before {
@@ -104,7 +101,6 @@
   font-weight: bold;
   color: #333;
 }
-
 
 .image {
   width: 100%;
@@ -123,18 +119,17 @@
   display: -webkit-box;
 }
 
-
 .cloud-shape .dates {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;        
+  gap: 10px;
   font-size: 15px;
   font-weight: 600;
   color: #666;
   margin-bottom: 15px;
   font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
-  margin-left: 0;      
+  margin-left: 0;
 }
 .cloud-shape .price {
   font-size: 18px;
@@ -151,10 +146,10 @@
 }
 
 .description {
-  max-height: 180px;   
-  overflow-y: auto;    
-  font-size: 16px;     
-  font-weight: bold;   
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 16px;
+  font-weight: bold;
   line-height: 1.5;
   padding-right: 6px;
   margin: 12px 0;
@@ -164,20 +159,20 @@
 .dates {
   display: flex;
   align-items: center;
-  justify-content: center; 
-  gap: 10px; 
-  font-size: 150px;          
+  justify-content: center;
+  gap: 10px;
+  font-size: 150px;
   font-weight: 600;
   color: #333;
   font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
   margin-bottom: 12px;
-  margin-left: 0;          
+  margin-left: 0;
 }
 
 .price {
   display: inline-block;
   background-color: #e6f4ea;
-  color: #0a7f45; 
+  color: #0a7f45;
   padding: 10px 18px;
   border-radius: 30px;
   font-weight: 600;
@@ -185,7 +180,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   font-family: "Segoe UI", "Roboto", sans-serif;
 }
-
 
 .like-circle {
   position: absolute;
@@ -221,20 +215,20 @@
   margin-top: 10px;
 }
 
-.edit-button-wrapper{
+.edit-button-wrapper {
   position: absolute;
-  top:70px;
+  top: 70px;
   left: -20px;
 }
 
 .editButton,
-.editText{
+.editText {
   display: block;
   text-align: center;
 }
 
-.editButton{
-    background: transparent;
+.editButton {
+  background: transparent;
   border: none;
   cursor: pointer;
 
@@ -243,14 +237,14 @@
   height: 40px;
 }
 
-.delete-button-wrapper{
+.delete-button-wrapper {
   position: absolute;
   top: 40px;
   right: -20px;
   z-index: 5;
 }
 
-.deleteButton{
+.deleteButton {
   background: transparent;
   border: none;
   cursor: pointer;

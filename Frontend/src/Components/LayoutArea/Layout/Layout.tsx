@@ -6,19 +6,19 @@ import { Routing } from "../Routing/Routing";
 import "./Layout.css";
 
 export function Layout() {
-    return (
-        <div className="Layout">
-            <header>
-                <Menu />
-                <Header />
-                <UserMenu />
-            </header>          
-            <main>
-                <Routing />
-            </main>
-            <footer>
-                <Copyrights />
-            </footer>
-        </div>
-    );
+  return (
+    <div className="Layout">
+      <header>
+        <Menu />
+        <Header />
+        <UserMenu />
+      </header>
+      <main>
+        <Routing />
+      </main>
+      <footer>
+        <Copyrights />
+      </footer>
+    </div>
+  );
 }

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useTitle } from "../../../Utils/UseTitle";
 
 export function EditVacation() {
-    useTitle("Like2Vacation - Edit Vacation");
+  useTitle("Like2Vacation - Edit Vacation");
   const navigate = useNavigate();
 
   const { register, handleSubmit, setValue } = useForm<VacationModel>();
@@ -19,21 +19,21 @@ export function EditVacation() {
   const _id = params._id!;
 
   useEffect(() => {
-  vacationService.getOneVacation(_id)
-    .then((vacation) => {
-      setValue("destination", vacation.destination);
-      setValue("description", vacation.description);
-      setValue("price", vacation.price);
-      setValue("startDate", vacation.startDate);
-      setValue("endDate", vacation.endDate);
+    vacationService
+      .getOneVacation(_id)
+      .then((vacation) => {
+        setValue("destination", vacation.destination);
+        setValue("description", vacation.description);
+        setValue("price", vacation.price);
+        setValue("startDate", vacation.startDate);
+        setValue("endDate", vacation.endDate);
 
-      setImageUrl(vacation.imageUrl || "");
-      setStartDate(new Date(vacation.startDate));
-      setEndDate(new Date(vacation.endDate));
-    })
-    .catch((err) => console.error(err.message));
-}, [_id]);
-
+        setImageUrl(vacation.imageUrl || "");
+        setStartDate(new Date(vacation.startDate));
+        setEndDate(new Date(vacation.endDate));
+      })
+      .catch((err) => console.error(err.message));
+  }, [_id]);
 
   async function send(vacation: VacationModel) {
     try {
@@ -113,7 +113,7 @@ export function EditVacation() {
         <button>Edit Vacation</button>
         <button type="button" onClick={close}>
           Cancel
-        </button>{" "}
+        </button>
       </form>
     </div>
   );

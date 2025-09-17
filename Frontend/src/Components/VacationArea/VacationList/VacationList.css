@@ -19,15 +19,14 @@
 .pagination button {
   padding: 10px 16px;
   background: linear-gradient(145deg, #ffffff, #e6f3ff);
-  color: #4682B4;
+  color: #4682b4;
   border: 2px solid rgba(135, 206, 235, 0.3);
   border-radius: 15px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 
-    0 3px 10px rgba(70, 130, 180, 0.15),
+  box-shadow: 0 3px 10px rgba(70, 130, 180, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   min-width: 40px;
   position: relative;
@@ -35,13 +34,17 @@
 }
 
 .pagination button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 70%
+  );
   transform: scale(0);
   transition: transform 0.3s ease;
 }
@@ -52,8 +55,7 @@
 
 .pagination button:hover {
   transform: translateY(-1px);
-  box-shadow: 
-    0 5px 15px rgba(70, 130, 180, 0.25),
+  box-shadow: 0 5px 15px rgba(70, 130, 180, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   color: #2e5c8a;
   border-color: rgba(135, 206, 235, 0.5);
@@ -70,17 +72,15 @@
 
 .pagination button:disabled:hover {
   transform: none;
-  box-shadow: 
-    0 3px 10px rgba(70, 130, 180, 0.15),
+  box-shadow: 0 3px 10px rgba(70, 130, 180, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .pagination button.active {
-  background: linear-gradient(145deg, #87CEEB, #B0E0E6);
+  background: linear-gradient(145deg, #87ceeb, #b0e0e6);
   color: white;
   border-color: rgba(70, 130, 180, 0.6);
-  box-shadow: 
-    0 4px 15px rgba(70, 130, 180, 0.3),
+  box-shadow: 0 4px 15px rgba(70, 130, 180, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   transform: translateY(-1px);
@@ -88,18 +88,20 @@
 
 .pagination .page-info {
   margin: 0 15px;
-  color: #4682B4;
+  color: #4682b4;
   font-weight: 600;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
   padding: 10px 16px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(230, 243, 255, 0.9));
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(230, 243, 255, 0.9)
+  );
   border-radius: 15px;
   border: 2px solid rgba(135, 206, 235, 0.2);
-  box-shadow: 
-    0 3px 10px rgba(70, 130, 180, 0.1),
+  box-shadow: 0 3px 10px rgba(70, 130, 180, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
-
 
 /* Filter Button Styles */
 .filterButton {
@@ -115,29 +117,31 @@
 .filterButton button:not(.liked-button) {
   padding: 12px 24px;
   background: linear-gradient(145deg, #ffffff, #e6f3ff);
-  color: #4682B4;
+  color: #4682b4;
   border: 2px solid rgba(135, 206, 235, 0.3);
   border-radius: 25px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 
-    0 4px 15px rgba(70, 130, 180, 0.2),
+  box-shadow: 0 4px 15px rgba(70, 130, 180, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
 }
 
-
 .filterButton button::before:not(.liked-button) {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 70%
+  );
   transform: scale(0);
   transition: transform 0.3s ease;
 }
@@ -148,19 +152,17 @@
 
 .filterButton button:hover:not(.liked-button) {
   transform: translateY(-2px);
-  box-shadow: 
-    0 8px 25px rgba(70, 130, 180, 0.3),
+  box-shadow: 0 8px 25px rgba(70, 130, 180, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   color: #2e5c8a;
   border-color: rgba(135, 206, 235, 0.5);
 }
 
 .filterButton button.active:not(.liked-button) {
-  background: linear-gradient(145deg, #87CEEB, #B0E0E6);
+  background: linear-gradient(145deg, #87ceeb, #b0e0e6);
   color: white;
   border-color: rgba(70, 130, 180, 0.6);
-  box-shadow: 
-    0 6px 20px rgba(70, 130, 180, 0.4),
+  box-shadow: 0 6px 20px rgba(70, 130, 180, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
@@ -182,19 +184,22 @@
   background: linear-gradient(145deg, #ffebee, #fce4ec);
   color: #c62828;
   border: 2px solid rgba(244, 67, 54, 0.3);
-  box-shadow: 
-    0 4px 15px rgba(244, 67, 54, 0.2),
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .liked-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 182, 193, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 182, 193, 0.3) 0%,
+    transparent 70%
+  );
   transform: scale(0);
   transition: transform 0.3s ease;
 }
@@ -207,8 +212,7 @@
   transform: translateY(-2px);
   color: #b71c1c;
   border-color: rgba(244, 67, 54, 0.5);
-  box-shadow: 
-    0 8px 25px rgba(244, 67, 54, 0.3),
+  box-shadow: 0 8px 25px rgba(244, 67, 54, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
@@ -216,20 +220,18 @@
   background: linear-gradient(145deg, #f44336, #e57373);
   color: #fff;
   border-color: rgba(198, 40, 40, 0.6);
-  box-shadow: 
-    0 6px 20px rgba(244, 67, 54, 0.4),
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
-
 
 /* Admin Add Vacation Button */
 .admin-add-button {
   display: block;
   margin: 18px auto 8px auto;
   padding: 12px 24px;
-  background: linear-gradient(135deg, #6B73FF 0%, #9C27B0 100%);
+  background: linear-gradient(135deg, #6b73ff 0%, #9c27b0 100%);
   color: white;
   border: 2px solid rgba(107, 115, 255, 0.3);
   border-radius: 30px;
@@ -237,8 +239,7 @@
   font-size: 14px;
   font-weight: 600;
   transition: all 0.4s ease;
-  box-shadow: 
-    0 6px 20px rgba(107, 115, 255, 0.25),
+  box-shadow: 0 6px 20px rgba(107, 115, 255, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
@@ -247,24 +248,33 @@
 }
 
 .admin-add-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
   transition: left 0.6s ease;
 }
 
 .admin-add-button::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
   transform: scale(0);
   transition: transform 0.4s ease;
 }
@@ -279,18 +289,16 @@
 
 .admin-add-button:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 
-    0 12px 35px rgba(107, 115, 255, 0.4),
+  box-shadow: 0 12px 35px rgba(107, 115, 255, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  background: linear-gradient(135deg, #5A67D8 0%, #8B5CF6 100%);
+  background: linear-gradient(135deg, #5a67d8 0%, #8b5cf6 100%);
   color: white;
   border-color: rgba(107, 115, 255, 0.5);
 }
 
 .admin-add-button:active {
   transform: translateY(-2px) scale(0.98);
-  box-shadow: 
-    0 4px 15px rgba(107, 115, 255, 0.3),
+  box-shadow: 0 4px 15px rgba(107, 115, 255, 0.3),
     inset 0 2px 4px rgba(107, 115, 255, 0.3);
 }
 
@@ -300,14 +308,17 @@
   text-align: center;
   margin: 15px auto 10px auto;
   padding: 8px 20px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(230, 243, 255, 0.8));
-  color: #4682B4;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(230, 243, 255, 0.8)
+  );
+  color: #4682b4;
   font-size: 14px;
   font-weight: 600;
   border-radius: 20px;
   border: 2px solid rgba(135, 206, 235, 0.2);
-  box-shadow: 
-    0 3px 10px rgba(70, 130, 180, 0.1),
+  box-shadow: 0 3px 10px rgba(70, 130, 180, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
   max-width: 200px;
@@ -341,9 +352,7 @@
   min-width: 320px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(135, 206, 235, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(135, 206, 235, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -353,16 +362,19 @@
   text-align: center;
   margin: 60px auto;
   padding: 40px 30px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(230, 243, 255, 0.95));
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(230, 243, 255, 0.95)
+  );
   border: 2px solid rgba(135, 206, 235, 0.3);
   border-radius: 20px;
-  color: #4682B4;
+  color: #4682b4;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.6;
   max-width: 500px;
-  box-shadow: 
-    0 8px 25px rgba(70, 130, 180, 0.15),
+  box-shadow: 0 8px 25px rgba(70, 130, 180, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
@@ -370,7 +382,7 @@
 }
 
 .VacationGrid > p::before {
-  content: '🏖️';
+  content: "🏖️";
   font-size: 48px;
   display: block;
   margin-bottom: 15px;
@@ -378,24 +390,29 @@
 }
 
 .VacationGrid > p::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(135, 206, 235, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(135, 206, 235, 0.1) 0%,
+    transparent 70%
+  );
   animation: shimmer 3s ease-in-out infinite;
   pointer-events: none;
 }
 
 @keyframes shimmer {
-  0%, 100% { 
-    transform: translateX(-100%) rotate(0deg); 
+  0%,
+  100% {
+    transform: translateX(-100%) rotate(0deg);
     opacity: 0;
   }
-  50% { 
-    transform: translateX(100%) rotate(10deg); 
+  50% {
+    transform: translateX(100%) rotate(10deg);
     opacity: 1;
   }
 }
@@ -407,7 +424,7 @@
     padding: 30px 20px;
     font-size: 16px;
   }
-  
+
   .VacationGrid > p::before {
     font-size: 36px;
     margin-bottom: 10px;
@@ -415,4 +432,3 @@
 }
 
 /* Animations removed to test blur functionality */
-

@@ -8,7 +8,14 @@ import { userService } from "../../../Services/UserService";
 import { useState, useEffect } from "react";
 
 import { notify } from "../../../Utils/Notify";
-import { CalendarRange, Heart, HeartOff, Plane, SquarePen, Trash2 } from "lucide-react";
+import {
+  CalendarRange,
+  Heart,
+  HeartOff,
+  Plane,
+  SquarePen,
+  Trash2,
+} from "lucide-react";
 
 type VacationCardProps = {
   vacation: VacationModel;
@@ -49,7 +56,7 @@ export function VacationCard(props: VacationCardProps) {
       if (!sure) return;
       await vacationService.deleteVacation(props.vacation._id);
       notify.success("Vacation has been deleted.");
-      
+
       // Call the callback to refresh the vacation list
       if (props.onVacationDeleted) {
         props.onVacationDeleted();
@@ -66,21 +73,25 @@ export function VacationCard(props: VacationCardProps) {
           <>
             <div className="plane-wrapper">
               <div className="trail"></div>
-              <span className="plane"><Plane size={40}/></span>
+              <span className="plane">
+                <Plane size={40} />
+              </span>
             </div>
 
             <div className="like-circle" onClick={handleVacationLike}>
-              <span className="heart">{liked ? <HeartOff /> : <Heart color="red"/> }</span>
+              <span className="heart">
+                {liked ? <HeartOff /> : <Heart color="red" />}
+              </span>
               <span className="like-count">{likes}</span>
             </div>
           </>
         )}
         <h2 className="destination">{props.vacation.destination}</h2>
         <span className="dates">
-            <CalendarRange/>
-            {props.vacation.startDate.toString().slice(0, 10)} –{" "}
-            {props.vacation.endDate.toString().slice(0, 10)}
-          </span>
+          <CalendarRange />
+          {props.vacation.startDate.toString().slice(0, 10)} –
+          {props.vacation.endDate.toString().slice(0, 10)}
+        </span>
         <div className="image-wrapper">
           <img
             className="image"
@@ -95,13 +106,17 @@ export function VacationCard(props: VacationCardProps) {
           <>
             <div className="edit-button-wrapper">
               <NavLink to={"/vacations/edit/" + props.vacation._id}>
-                <button className="editButton"><SquarePen size={30}/></button>
+                <button className="editButton">
+                  <SquarePen size={30} />
+                </button>
               </NavLink>
             </div>
 
             <div className="delete-button-wrapper">
               <NavLink to="#" onClick={deleteVacation}>
-                <button className="deleteButton"><Trash2 size={30}/></button>
+                <button className="deleteButton">
+                  <Trash2 size={30} />
+                </button>
               </NavLink>
             </div>
           </>
