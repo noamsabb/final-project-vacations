@@ -1,4 +1,5 @@
 import { UserMenu } from "../../UserArea/UserMenu/UserMenu";
+import { Copyrights } from "../Copyrights/Copyrights";
 import { Header } from "../Header/Header";
 import { Menu } from "../Menu/Menu";
 import { Routing } from "../Routing/Routing";
@@ -15,7 +16,9 @@ export function Layout() {
             <main>
                 <Routing />
             </main>
-            <footer>Copyrights</footer>
+            <footer>
+                <Copyrights />
+            </footer>
         </div>
     );
 }

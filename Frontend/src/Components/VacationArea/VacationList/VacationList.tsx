@@ -23,6 +23,8 @@ export function VacationList() {
   const [likedButton, setLikedButton] = useState(false);
   const [totalVacations, setTotalVacations] = useState<number>(0)
 
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
+
   useEffect(() => {
   if (!showAddForm) {
     if (likedButton) {
@@ -46,8 +48,22 @@ export function VacationList() {
         .catch(console.error);
     }
   }
-}, [page, filter, showAddForm, likedButton]);
+}, [page, filter, showAddForm, likedButton, refreshTrigger]);
 
+  function handleVacationDeleted() {
+    setRefreshTrigger(prev => prev + 1);
+  }
+
+  function scrollToTop() {
+    // Scroll the window
+    window.scrollTo(0, 0);
+    
+    // Also scroll the main content area
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+      mainElement.scrollTo(0, 0);
+    }
+  }
 
   async function handleFilterChange(selectedFilter: string) {
     if (selectedFilter === "liked") {
@@ -127,7 +143,7 @@ export function VacationList() {
             Check again soon!
           </p>
         ) : (
-          vacations.map((v) => <VacationCard key={v._id} vacation={v} />)
+          vacations.map((v) => <VacationCard key={v._id} vacation={v} onVacationDeleted={handleVacationDeleted} />)
         )}
       
       </div>
@@ -135,7 +151,13 @@ export function VacationList() {
 
       {/* Pagination controls */}
       <div className="pagination">
-        <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+        <button 
+          disabled={page === 1} 
+          onClick={() => {
+            setPage(page - 1);
+            scrollToTop();
+          }}
+        >
           Prev
         </button>
         <span>
@@ -143,7 +165,10 @@ export function VacationList() {
         </span>
         <button
           disabled={page === totalPages}
-          onClick={() => setPage(page + 1)}
+          onClick={() => {
+            setPage(page + 1);
+            scrollToTop();
+          }}
         >
           Next
         </button>

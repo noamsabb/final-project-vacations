@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import "./ScrollToTop.css";
 import { useLocation } from "react-router-dom";
 
 export function ScrollToTop(): null {

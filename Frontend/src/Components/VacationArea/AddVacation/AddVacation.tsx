@@ -19,12 +19,27 @@ export function AddVacation({ onClose }: AddVacationProps) {
   const [startDate, setStartDate] = useState("");
 
   async function send(vacation: VacationModel) {
-    vacation.image = (vacation.image as unknown as FileList)[0];
+    try {
+      vacation.image = (vacation.image as unknown as FileList)[0];
 
-    await vacationService.addVacation(vacation);
-    notify.success("Vacation has been added.");
-    navigate("/vacations");
-    onClose();
+      await vacationService.addVacation(vacation);
+      notify.success("Vacation has been added.");
+      navigate("/vacations");
+      onClose();
+    } catch (err: any) {
+      // Check if this is an authentication error (401 or 403)
+      if (err.response?.status === 401 || err.response?.status === 403) {
+        notify.error("Your session has expired. Please log in again.");
+        // Don't close modal immediately - let user see the error
+        setTimeout(() => {
+          onClose();
+          navigate("/login");
+        }, 2000);
+      } else {
+        // For other errors, show the error but keep modal open
+        notify.error(err.message || "Failed to add vacation. Please try again.");
+      }
+    }
   }
 
   return (

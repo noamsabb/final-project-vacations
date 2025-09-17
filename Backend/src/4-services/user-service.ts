@@ -68,11 +68,9 @@ class UserService {
       );
 
       vacation.likes -= 1;
-      console.log("vacation un-liked");
     } else {
       user.likedVacations.push(new mongoose.Types.ObjectId(vacationId));
       vacation.likes += 1;
-      console.log("vacation liked");
     }
     await user.save();
     await vacation.save();

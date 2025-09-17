@@ -156,6 +156,44 @@
   letter-spacing: 0.5px;
 }
 
+
+.Register p {
+  margin-top: 25px;
+  text-align: center;
+  color: #4682B4;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.Register p a {
+  color: #6B73FF;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.Register p a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #6B73FF, #9C27B0);
+  transition: width 0.3s ease;
+}
+
+.Register p a:hover::after {
+  width: 100%;
+}
+
+.Register p a:hover {
+  color: #9C27B0;
+  transform: translateY(-1px);
+}
+
 /* Responsive design */
 @media (max-width: 600px) {
   .Register {

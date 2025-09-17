@@ -1,4 +1,3 @@
-import { useNavigate, useParams } from "react-router-dom";
 import { VacationModel } from "../../../Models/VacationModel";
 import "./VacationCard.css";
 import { NavLink } from "react-router-dom";
@@ -13,12 +12,12 @@ import { CalendarRange, Heart, HeartOff, Plane, SquarePen, Trash2 } from "lucide
 
 type VacationCardProps = {
   vacation: VacationModel;
+  onVacationDeleted?: () => void;
 };
 
 export function VacationCard(props: VacationCardProps) {
   // Get current user from Redux store
   const user = useSelector((state: AppState) => state.user);
-  const navigate = useNavigate();
 
   const [liked, setLiked] = useState<boolean>(false);
   const [likes, setLikes] = useState(props.vacation.likes);
@@ -50,7 +49,11 @@ export function VacationCard(props: VacationCardProps) {
       if (!sure) return;
       await vacationService.deleteVacation(props.vacation._id);
       notify.success("Vacation has been deleted.");
-      navigate("/vacations");
+      
+      // Call the callback to refresh the vacation list
+      if (props.onVacationDeleted) {
+        props.onVacationDeleted();
+      }
     } catch (err: any) {
       notify.error(err);
     }

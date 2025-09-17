@@ -348,5 +348,71 @@
   -webkit-backdrop-filter: blur(10px);
 }
 
+/* No Vacations Found Message Styles */
+.VacationGrid > p {
+  text-align: center;
+  margin: 60px auto;
+  padding: 40px 30px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(230, 243, 255, 0.95));
+  border: 2px solid rgba(135, 206, 235, 0.3);
+  border-radius: 20px;
+  color: #4682B4;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 500px;
+  box-shadow: 
+    0 8px 25px rgba(70, 130, 180, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  grid-column: 1 / -1; /* Span full width of grid */
+}
+
+.VacationGrid > p::before {
+  content: '🏖️';
+  font-size: 48px;
+  display: block;
+  margin-bottom: 15px;
+  opacity: 0.7;
+}
+
+.VacationGrid > p::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(135, 206, 235, 0.1) 0%, transparent 70%);
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0%, 100% { 
+    transform: translateX(-100%) rotate(0deg); 
+    opacity: 0;
+  }
+  50% { 
+    transform: translateX(100%) rotate(10deg); 
+    opacity: 1;
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .VacationGrid > p {
+    margin: 40px 20px;
+    padding: 30px 20px;
+    font-size: 16px;
+  }
+  
+  .VacationGrid > p::before {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+}
+
 /* Animations removed to test blur functionality */
 

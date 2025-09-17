@@ -19,12 +19,9 @@ class VacationService {
         params: { filter, page, limit },
       });
     } else {
-      console.log(`Page: ${page}. Limit: ${limit}. Filter: ${filter}`);
-
       response = await axios.get(appConfig.vacationsUrl, {
         params: { filter },
       });
-      console.log(response.data);
     }
     return response.data;
   }

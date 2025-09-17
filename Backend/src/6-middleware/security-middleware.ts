@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { cyber } from "../2-utils/cyber"
-import { ForbiddenError } from "../3-models/client-errors";
+import { ForbiddenError, AuthorizationError } from "../3-models/client-errors";
 import striptags from "striptags"; // npm i striptags
 
 class SecurityMiddleware {
@@ -12,7 +12,7 @@ class SecurityMiddleware {
         const token = request.headers.authorization?.substring(7);
 
         if(!cyber.verifyToken(token!)) {
-            const err = new ForbiddenError("You are not logged-in.");
+            const err = new AuthorizationError("You are not logged-in.");
             next(err);
             return;
         }

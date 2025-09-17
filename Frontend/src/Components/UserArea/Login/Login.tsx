@@ -37,10 +37,10 @@ export function Login() {
 
       <form onSubmit={handleSubmit(send)}>
         <label>Email: </label>
-        <input type="email" {...register("email")} />
+        <input type="email" {...register("email")} required />
 
         <label>Password: </label>
-        <input type="password" {...register("password")} />
+        <input type="password" {...register("password")} required/>
 
         <button>Login</button>
       </form>

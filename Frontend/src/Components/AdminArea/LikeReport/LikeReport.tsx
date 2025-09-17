@@ -22,7 +22,6 @@ export function LikeReport() {
       .getAllVacations("all")
       .then((result) => {
         setVacations(result.vacations);
-        console.log(result.vacations);
       })
       .catch(console.error);
   }, []);
@@ -50,9 +49,9 @@ export function LikeReport() {
         </button>
       </div>
 
-      <div style={{ width: "100%", height: 400 }}>
+      <div className="chart-container">
         <h2>Likes Report</h2>
-        <ResponsiveContainer>
+        <ResponsiveContainer width="100%" height={400}>
           <BarChart data={graphData} barCategoryGap="30%">
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(70, 130, 180, 0.2)" />
             <XAxis dataKey="destination" stroke="#4682B4" fontSize={12} />

@@ -1,170 +1,78 @@
-/* Admin Like Report Page - Sky Dashboard Theme */
+/* Clean Admin Like Report Page */
 .LikeReport {
-  padding: 30px;
-  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
-  min-height: 100vh;
-  position: relative;
-}
-
-.LikeReport::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(135, 206, 235, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(176, 224, 230, 0.2) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Page Title */
-.LikeReport h2 {
-  background: linear-gradient(135deg, #6B73FF, #9C27B0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-size: 32px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 1;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  letter-spacing: 0.5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Stats Container */
 .LikeReport .stats {
-  background: linear-gradient(145deg, #ffffff, #f8fbff);
-  padding: 25px;
-  border-radius: 20px;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 1;
-  box-shadow: 
-    0 20px 60px rgba(70, 130, 180, 0.15),
-    0 8px 25px rgba(70, 130, 180, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(135, 206, 235, 0.2);
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(135, 206, 235, 0.2);
 }
 
-.LikeReport .stats::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  bottom: -10px;
-  left: -10px;
-  background: linear-gradient(45deg, rgba(135, 206, 235, 0.1), rgba(70, 130, 180, 0.1));
-  border-radius: 30px;
-  z-index: -1;
-}
-
-/* Stats Typography */
 .LikeReport .stats span:first-child {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: #4682B4;
   display: block;
   margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .LikeReport .stats span:not(:first-child) {
-  font-size: 16px;
-  font-weight: 600;
-  color: #2C5F7D;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
   display: block;
-  margin: 10px 0;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(135, 206, 235, 0.2);
-}
-
-.LikeReport .stats span:last-of-type {
-  border-bottom: none;
-  margin-bottom: 20px;
+  margin: 8px 0;
 }
 
 /* Download Button */
 .LikeReport .stats button {
-  padding: 12px 25px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 15px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  letter-spacing: 0.3px;
-  position: relative;
-  overflow: hidden;
   background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
   color: white;
-  box-shadow: 
-    0 8px 25px rgba(40, 167, 69, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.LikeReport .stats button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transition: left 0.6s;
-}
-
-.LikeReport .stats button:hover::before {
-  left: 100%;
+  margin-top: 15px;
 }
 
 .LikeReport .stats button:hover {
-  transform: translateY(-3px);
-  box-shadow: 
-    0 12px 35px rgba(40, 167, 69, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  background: linear-gradient(135deg, #218838 0%, #17a2b8 100%);
-}
-
-.LikeReport .stats button:active {
-  transform: translateY(0);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
 }
 
 /* Chart Container */
-.LikeReport > div:last-child {
-  background: linear-gradient(145deg, #ffffff, #f8fbff);
-  padding: 30px;
-  border-radius: 20px;
-  position: relative;
-  z-index: 1;
-  box-shadow: 
-    0 20px 60px rgba(70, 130, 180, 0.15),
-    0 8px 25px rgba(70, 130, 180, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(135, 206, 235, 0.2);
+.LikeReport .chart-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(135, 206, 235, 0.2);
 }
 
-.LikeReport > div:last-child::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  bottom: -10px;
-  left: -10px;
-  background: linear-gradient(45deg, rgba(135, 206, 235, 0.1), rgba(70, 130, 180, 0.1));
-  border-radius: 30px;
-  z-index: -1;
+.LikeReport .chart-container h2 {
+  background: linear-gradient(135deg, #6B73FF, #9C27B0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 20px 0;
 }
 
-/* Hide inline br tags for better layout */
+/* Hide br tags */
 .LikeReport .stats br {
   display: none;
 }
@@ -172,45 +80,26 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .LikeReport {
-    padding: 20px 15px;
+    padding: 15px;
+    gap: 15px;
   }
   
   .LikeReport .stats,
-  .LikeReport > div:last-child {
-    padding: 20px;
-    margin-bottom: 20px;
+  .LikeReport .chart-container {
+    padding: 15px;
   }
   
-  .LikeReport h2 {
-    font-size: 26px;
-    margin-bottom: 20px;
-  }
-  
-  .LikeReport .stats span:first-child {
-    font-size: 18px;
-  }
-  
-  .LikeReport .stats span:not(:first-child) {
-    font-size: 14px;
+  .LikeReport .chart-container h2 {
+    font-size: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .LikeReport {
-    padding: 15px 10px;
-  }
-  
-  .LikeReport .stats,
-  .LikeReport > div:last-child {
-    padding: 15px;
-  }
-  
-  .LikeReport h2 {
-    font-size: 22px;
+    padding: 10px;
   }
   
   .LikeReport .stats button {
     width: 100%;
-    padding: 14px;
   }
 }

@@ -36,7 +36,6 @@ class UserController {
     const user = new UserModel(request.body);
     const token = await userService.register(user);
     response.status(StatusCode.Created).json(token);
-    console.log("New user registered");
   }
 
   // Login as existing user:
@@ -44,7 +43,6 @@ class UserController {
     const credentials = new CredentialsModel(request.body);
     const token = await userService.login(credentials);
     response.json(token);
-    console.log("user logged-in");
   }
 
   private async likeVacation(request: Request, response: Response) {
