@@ -32,7 +32,7 @@ class VacationService {
         query = {};
         break;
     }
-    
+
     if (page && limit) {
       const skip = (page - 1) * limit;
       const [vacations, total] = await Promise.all([
@@ -90,10 +90,11 @@ class VacationService {
       const oldImageName = await this.getImageName(vacation._id);
       vacation.imageName = await fileSaver.update(oldImageName!, image);
     }
-    
 
     // Create update object excluding likes to preserve existing likes count
-    const { likes, ...updateData } = vacation.toObject ? vacation.toObject() : vacation;
+    const { likes, ...updateData } = vacation.toObject
+      ? vacation.toObject()
+      : vacation;
 
     const dbVacation = await VacationModel.findByIdAndUpdate(
       vacation._id,

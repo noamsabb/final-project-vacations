@@ -104,12 +104,10 @@ class UserService {
           (vacation) => vacation.startDate < now && vacation.endDate > now
         );
       case "upcoming":
-        return likedVacations.filter(
-          (vacation) => vacation.startDate > now
-        );
+        return likedVacations.filter((vacation) => vacation.startDate > now);
       case "all":
       default:
-        return likedVacations
+        return likedVacations;
     }
   }
 }

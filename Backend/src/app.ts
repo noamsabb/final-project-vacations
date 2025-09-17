@@ -12,51 +12,53 @@ import { securityMiddleware } from "./6-middleware/security-middleware";
 import { userController } from "./5-controllers/user-controller";
 
 class App {
+  public async start(): Promise<void> {
+    // Connecting to MongoDB:
+    await mongoose.connect(appConfig.mongodbConnectionString);
 
-    public async start(): Promise<void> {
+    // Create the server object:
+    const server = express();
 
-        // Connecting to MongoDB:
-        await mongoose.connect(appConfig.mongodbConnectionString);
+    // Prevent DoS attack:
+    server.use(
+      expressRateLimit({
+        windowMs: 1000,
+        limit: 10,
+        skip: (request: Request) =>
+          request.originalUrl.startsWith("/api/vacations/images/"), // Don't block images.
+      })
+    );
 
-        // Create the server object: 
-        const server = express();
+    server.use(cors()); // Allow access from any client.
 
-        // Prevent DoS attack: 
-        server.use(expressRateLimit({
-            windowMs: 1000,
-            limit: 10,
-            skip: (request: Request) => request.originalUrl.startsWith("/api/vacations/images/") // Don't block images.
-        }));
+    // Tell express to create request.body from the HTTP Request body json:
+    server.use(express.json());
 
-        server.use(cors()); // Allow access from any client.
+    // Tell express to create request.files object containing upload files:
+    server.use(fileUpload());
 
-        // Tell express to create request.body from the HTTP Request body json:
-        server.use(express.json());
+    // Configure fileSaver regarding where to save the files:
+    const location = path.join(__dirname, "1-assets", "images");
+    fileSaver.config(location);
 
-        // Tell express to create request.files object containing upload files:
-        server.use(fileUpload());
+    // Register middleware:
+    server.use(securityMiddleware.preventXssAttack);
 
-        // Configure fileSaver regarding where to save the files: 
-        const location = path.join(__dirname, "1-assets", "images");
-        fileSaver.config(location);
+    // Listen to controller routes:
+    server.use(userController.router);
+    server.use(vacationController.router);
 
-        // Register middleware: 
-        server.use(securityMiddleware.preventXssAttack);
+    // Route not found middleware:
+    server.use(errorMiddleware.routeNotFound);
 
-        // Listen to controller routes: 
-        server.use(userController.router);
-        server.use(vacationController.router);
+    // Catch-all middleware:
+    server.use(errorMiddleware.catchAll);
 
-        // Route not found middleware: 
-        server.use(errorMiddleware.routeNotFound);
-
-        // Catch-all middleware: 
-        server.use(errorMiddleware.catchAll);
-
-        // Run server: 
-        server.listen(appConfig.port, () => console.log("Listening on http://localhost:" + appConfig.port));
-    }
-
+    // Run server:
+    server.listen(appConfig.port, () =>
+      console.log("Listening on http://localhost:" + appConfig.port)
+    );
+  }
 }
 
 const app = new App();

@@ -68,7 +68,10 @@ class UserController {
     // const filter = request.body.filter; //To test in postman
     const filter = request.query.filter as string;
     const userId = request.params._id;
-    const likedVacations = await userService.getLikedVacationFiltered(userId,filter );
+    const likedVacations = await userService.getLikedVacationFiltered(
+      userId,
+      filter
+    );
     response.json(likedVacations);
   }
 }

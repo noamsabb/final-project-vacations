@@ -7,27 +7,46 @@ import { StatusCode } from "../3-models/enums";
 import { asyncWrapProviders } from "async_hooks";
 import { securityMiddleware } from "../6-middleware/security-middleware";
 
-
 class VacationController {
   public router: Router = express.Router();
 
   public constructor() {
-    this.router.get("/api/vacations",securityMiddleware.verifyToken, this.getAllVacations);
+    this.router.get(
+      "/api/vacations",
+      securityMiddleware.verifyToken,
+      this.getAllVacations
+    );
     this.router.get("/api/vacations/export", this.generateVacationCsv);
-    this.router.post("/api/vacations", securityMiddleware.verifyAdmin, this.addVacation);
+    this.router.post(
+      "/api/vacations",
+      securityMiddleware.verifyAdmin,
+      this.addVacation
+    );
     this.router.get("/api/vacations/images/:imageName", this.getImage);
     this.router.get("/api/vacations/:_id", this.getOneVacation);
-    this.router.put("/api/vacations/:_id", securityMiddleware.verifyAdmin, this.updateVacation);
-    this.router.delete("/api/vacations/:_id", securityMiddleware.verifyAdmin, this.deleteVacation);
+    this.router.put(
+      "/api/vacations/:_id",
+      securityMiddleware.verifyAdmin,
+      this.updateVacation
+    );
+    this.router.delete(
+      "/api/vacations/:_id",
+      securityMiddleware.verifyAdmin,
+      this.deleteVacation
+    );
   }
 
   private async getAllVacations(request: Request, response: Response) {
     // const filter = request.body.filter; //To test in postman
     const filter = request.query.filter as string;
-    const page = Number(request.query.page);  
-    const limit = Number(request.query.limit); 
+    const page = Number(request.query.page);
+    const limit = Number(request.query.limit);
 
-    const vacations = await vacationService.getAllVacations(filter, page, limit);
+    const vacations = await vacationService.getAllVacations(
+      filter,
+      page,
+      limit
+    );
     response.json(vacations);
   }
   private async getOneVacation(request: Request, response: Response) {

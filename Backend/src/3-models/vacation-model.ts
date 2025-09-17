@@ -1,4 +1,3 @@
-
 import mongoose, { Document, model, ObjectId, Schema } from "mongoose";
 import { appConfig } from "../2-utils/app-config";
 
@@ -27,55 +26,45 @@ export const VacationSchema = new Schema<IVacationModel>(
       minLength: [10, "Description too short"],
       maxLength: [1000, "Description too long"],
     },
-    startDate:{
+    startDate: {
       type: Date,
       required: [true, "Missing Start Date"],
-      // validate:{
-      //   validator: function (value: Date){
-      //        const isCreating = this instanceof mongoose.Document && this.isNew;
-      // if (!isCreating) return true;
-      //     const now = new Date();
-      //     now.setHours(0, 0, 0, 0);
-      //     return value >= now ;
-      //   },
-      //   message: "Start date cannot be in the past"
-      // }
-    },    
+    },
     endDate: {
       type: Date,
       required: [true, "Missing End Date"],
       validate: {
-      validator: function (value: Date) {
-        return !this.startDate || value > this.startDate;
+        validator: function (value: Date) {
+          return !this.startDate || value > this.startDate;
+        },
+        message: "End date must be after start date",
       },
-      message: "End date must be after start date",
     },
-    },    
     price: {
-        type: Number,
-        required: [true, "Missing price."],
-        min: [0, "Price can't be negative."],
-        max: [10000, "Price can't exceed 10 000."]
-    },    
+      type: Number,
+      required: [true, "Missing price."],
+      min: [0, "Price can't be negative."],
+      max: [10000, "Price can't exceed 10 000."],
+    },
     imageName: {
-        type: String
+      type: String,
     },
     likes: {
       type: Number,
       default: 0,
-      min: 0
-    }
-
+      min: 0,
+    },
   },
-  { versionKey: false, // Don't add __v field to each added document.
+  {
+    versionKey: false, // Don't add __v field to each added document.
     toJSON: { virtuals: true }, // Include also virtual fields when converting document to JSON.
     id: false, // Don't add additional id field to the return document.
-    timestamps: true // Add createdAt and updatedAt to any document.
+    timestamps: true, // Add createdAt and updatedAt to any document.
   }
 );
 
 VacationSchema.virtual("imageUrl").get(function () {
-    return appConfig.baseImageUrl + this.imageName;
+  return appConfig.baseImageUrl + this.imageName;
 });
 
 VacationSchema.pre("validate", function (next) {
