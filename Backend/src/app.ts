@@ -12,9 +12,19 @@ import { securityMiddleware } from "./6-middleware/security-middleware";
 import { userController } from "./5-controllers/user-controller";
 
 class App {
-  public async start(): Promise<void> {
-    // Connecting to MongoDB:
-    await mongoose.connect(appConfig.mongodbConnectionString);
+  public async start(): Promise<void> { // Connecting to MongoDB with explicit options:
+    try {
+      await mongoose.connect(appConfig.mongodbConnectionString, {
+        tls: true,
+        tlsAllowInvalidCertificates: false,
+        serverSelectionTimeoutMS: 30000,
+        socketTimeoutMS: 75000,
+      });
+      console.log('✅ MongoDB connected successfully!');
+    } catch (error) {
+      console.error('❌ MongoDB connection failed:', error);
+      throw error;
+    }
 
     // Create the server object:
     const server = express();
@@ -58,9 +68,10 @@ class App {
     server.use(errorMiddleware.catchAll);
 
     // Run server:
-    server.listen(appConfig.port, () =>
-      console.log("Listening on http://localhost:" + appConfig.port)
-    );
+    const PORT = process.env.PORT || appConfig.port;
+    server.listen(appConfig.port, '0.0.0.0', () => {
+      console.log(`✅ Server listening on port ${PORT}`);
+    });
   }
 }
 
