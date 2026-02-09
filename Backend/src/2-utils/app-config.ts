@@ -10,7 +10,7 @@ class AppConfig {
   public readonly isDevelopment = this.environment === "development";
   public readonly isProduction = this.environment === "production";
   public readonly port = Number(process.env.PORT) || 4000;
-  public readonly mongodbConnectionString =
+  public readonly mongodbConnectionString = process.env.MONGODB_URI ||
     process.env.MONGODB_CONNECTION_STRING!;
   public readonly baseImageUrl = process.env.BASE_IMAGE_URL!;
   public readonly jwtSecretKey = process.env.JWT_SECRET_KEY!;
