@@ -2,7 +2,7 @@ import dotenv from "dotenv"; // npm i dotenv
 
 // Load .env file into process.env object.
 // dotenv.config({ quiet: true });
-dotenv.config();
+dotenv.config({override: false});
 
 class AppConfig {
   private readonly environment =
