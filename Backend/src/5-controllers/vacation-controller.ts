@@ -50,7 +50,7 @@ class VacationController {
     response.json(vacations);
   }
   private async getOneVacation(request: Request, response: Response) {
-    const _id = request.params._id;
+    const _id = request.params._id as string;
     const vacation = await vacationService.getOneVacation(_id);
     response.json(vacation);
   }
@@ -75,7 +75,7 @@ class VacationController {
   }
 
   private async deleteVacation(request: Request, response: Response) {
-    const _id = request.params._id;
+    const _id = request.params._id as string;
     await vacationService.deleteVacation(_id);
     response.sendStatus(StatusCode.NoContent);
   }

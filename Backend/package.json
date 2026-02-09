@@ -4,8 +4,11 @@
     "description": "",
     "author": "John Bryce",
     "scripts": {
-        "start": "nodemon --exec ts-node src/app.ts --quiet",
-        "test": "mocha --require ts-node/register tests/**/*.test.ts --exit"
+        "dev": "nodemon --exec ts-node src/app.ts --quiet",
+        "build": "tsc",
+        "start": "node dist/app.js",
+        "test": "mocha --require ts-node/register tests/**/*.test.ts --exit",
+        "main": "dist/app.js"
     },
     "devDependencies": {
         "@types/bcrypt": "^6.0.0",

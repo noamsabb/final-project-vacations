@@ -1,8 +1,11 @@
 {
     "compilerOptions": {
-        "target": "ESNext",
+        "target": "ES2019",
+        "module": "CommonJS",
         "moduleResolution": "Node",
         "esModuleInterop": true,
-        "removeComments": true
+        "removeComments": true,
+        "rootDir": "src",
+        "outDir": "dist"
     }
 }

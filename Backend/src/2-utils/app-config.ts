@@ -5,9 +5,11 @@ import dotenv from "dotenv"; // npm i dotenv
 dotenv.config();
 
 class AppConfig {
-  public readonly isDevelopment = process.env.ENVIRONMENT === "development";
-  public readonly isProduction = process.env.ENVIRONMENT === "production";
-  public readonly port = 4000;
+  private readonly environment =
+    process.env.ENVIRONMENT || process.env.NODE_ENV || "development";
+  public readonly isDevelopment = this.environment === "development";
+  public readonly isProduction = this.environment === "production";
+  public readonly port = Number(process.env.PORT) || 4000;
   public readonly mongodbConnectionString =
     process.env.MONGODB_CONNECTION_STRING!;
   public readonly baseImageUrl = process.env.BASE_IMAGE_URL!;

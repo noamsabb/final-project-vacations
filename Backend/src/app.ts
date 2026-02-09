@@ -19,6 +19,9 @@ class App {
     // Create the server object:
     const server = express();
 
+    // Behind reverse proxies (Railway/NGINX), trust the first proxy hop:
+    server.set("trust proxy", 1);
+
     // Prevent DoS attack:
     server.use(
       expressRateLimit({
