@@ -42,7 +42,17 @@ class App {
       })
     );
 
-    server.use(cors()); // Allow access from any client.
+// Allow requests from Vercel frontend
+server.use(cors({
+  origin: [
+    'http://localhost:5173',  // Local frontend dev
+    'https://final-project-vacations.vercel.app',  // Your Vercel frontend
+    'https://*.vercel.app'  // All Vercel preview deployments
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
     // Tell express to create request.body from the HTTP Request body json:
     server.use(express.json());
