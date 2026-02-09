@@ -20,7 +20,7 @@ export function Routing() {
 
         <Route path="/vacations" element={<VacationList />} />
 
-        <Route path="/new" element={<AddVacation />} />
+        <Route path="/new" element={<AddVacation onClose={()=>{}}/>} />
 
         <Route path="/like-report" element={<LikeReport />} />
 

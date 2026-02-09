@@ -7,7 +7,6 @@ import { useTitle } from "../../../Utils/UseTitle";
 import "./Login.css";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 export function Login() {
   useTitle("Like2Vacation - Login");

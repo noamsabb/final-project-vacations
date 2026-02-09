@@ -80,7 +80,7 @@ export function VacationCard(props: VacationCardProps) {
 
             <div className="like-circle" onClick={handleVacationLike}>
               <span className="heart">
-                {liked ? <HeartOff /> : <Heart color="red" />}
+                {liked ? <Heart color="red" /> : <HeartOff />}
               </span>
               <span className="like-count">{likes}</span>
             </div>

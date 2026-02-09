@@ -20,3 +20,7 @@ yarn-error.log*
 
 # Local history
 .history/
+
+.env
+.env.local
+.env.*.local
